@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import logo from "../../../assets/logo/gammageeks.png";
 import { Button } from "../../ui/button";
+import { Box } from "@chakra-ui/react";
 
 const Nav = () => {
   const [navBackground, setNavBackground] = useState("transparent");
@@ -29,7 +30,7 @@ const Nav = () => {
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
           <a href="#home">
-            <img src={logo} alt="Logo" className="w-96 h-10 object-contain hover:scale-105 transition-transform duration-300" style={{ padding: '15px 15px 15px 15px', marginLeft: 40 }}/>
+            <Box paddingY='4' paddingX='8'><img src={logo} alt="Logo" className="w-88 object-contain hover:scale-105 transition-transform duration-300"/></Box>
           </a>
 
           {/* Desktop Menu */}

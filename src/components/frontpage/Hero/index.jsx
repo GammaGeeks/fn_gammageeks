@@ -43,7 +43,7 @@ const Tablet = () => (
     {/* Tablet Design */}
     <motion.Box
         initial={{ opacity: 0, x: 100 }}
-        animate={{ opacity: 1, x: 0 }}
+        whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8 }}
         className="relative flex flex-col items-center mt-16 lg:mt-0 py-5 px-8 md:px-52"
       >
@@ -107,21 +107,26 @@ const Tablet = () => (
 const HeroText = () => (
   <>
     <Container className="p-8 md:p-12 lg:p-16">
-      <Box className="flex items-center justify-center mb-12 md:mb-16 p-8">
-        <img src={logo} alt="Logo" className="w-96 h-96 md:w-80 md:h-80 lg:w-96 lg:h-96" />
-      </Box>
+      <motion.Box
+        className="flex items-center justify-center mb-12 md:mb-16 p-8"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+      >
+        <img src={logo} alt="Logo" className="w-92 h-92 md:w-80 md:h-80 lg:w-92 lg:h-92" />
+      </motion.Box>
       <Box className="text-center md:text-left">
         <motion.Box
           className="flex flex-col items-center md:items-center space-y-6 md:space-y-8 gap-4 md:gap-6"
           initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
           <Text className='bg-clip-text font-montserrat text-transparent bg-gradient-to-r from-blue-400 via-green-500 to-purple-400' fontWeight="bold" textStyle="5xl">Experience Innovation</Text>
           <motion.p 
             className="text-2xl text-gray-300 max-w-lg px-6 md:px-0 leading-relaxed text-center"
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             Elevate your digital presence with cutting-edge solutions that transform ideas into remarkable experiences.
@@ -130,7 +135,7 @@ const HeroText = () => (
           <motion.Box 
             className="flex flex-col sm:flex-row gap-6 mt-12 px-4 md:px-0 w-full md:w-auto"
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
             <Button colorPalette="purple" variant="solid" className="bg-gradient-to-r from-blue-500 to-purple-500 text-white px-8 py-4 lg:px-10 lg:py-5 flex items-center gap-2 hover:opacity-90 rounded-full transition-all duration-300 shadow-lg hover:shadow-blue-500/20 text-lg lg:text-xl">

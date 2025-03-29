@@ -1,110 +1,92 @@
 import React from 'react';
-// eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
-import { Code, Server, Zap, Shield, Globe } from 'lucide-react';
-import { Text } from '@chakra-ui/react';
+import { Heading, chakra, Flex, Box, Text } from '@chakra-ui/react';
+
+const MotionBox = motion(chakra.div);
+
+const projects = [
+  {
+    title: "Kigaluxe Web Application",
+    description: "Kigaluxe is a web application that provides a platform for users to explore and book luxury accommodations in Kigali, Rwanda. The application features a user-friendly interface, advanced search options, and secure payment processing.",
+    imageUrl: "https://d1frnxkutzpamu.cloudfront.net/utils/gammageeks/kigaluxe.png",
+    stack: "UI/UX, React, Node.js",
+  },
+  {
+    title: "Tura Estate Web Application",
+    description: "Tura Estate is a web application that offers a comprehensive solution for real estate management. It allows users to list properties, manage bookings, and communicate with potential buyers or renters.",
+    imageUrl: "https://d1frnxkutzpamu.cloudfront.net/utils/gammageeks/tura.png",
+    stack: "UI/UX, React, Node.js",
+  },
+];
 
 const ProjectShowcase = () => {
-  const serviceVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: {
-        duration: 0.6,
-        staggerChildren: 0.3,
-        delayChildren: 0.2
-      }
-    }
-  };
-
-  const services = [
-    {
-      icon: Code,
-      title: "Custom Development",
-      description: "Tailored software solutions that meet your unique business needs.",
-      color: "text-blue-400"
-    },
-    {
-      icon: Server,
-      title: "Cloud Infrastructure",
-      description: "Scalable and secure cloud solutions to power your digital transformation.",
-      color: "text-green-400"
-    },
-    {
-      icon: Zap,
-      title: "AI & Machine Learning",
-      description: "Cutting-edge AI solutions to drive innovation and efficiency.",
-      color: "text-purple-400"
-    },
-    {
-      icon: Shield,
-      title: "Cybersecurity",
-      description: "Comprehensive security strategies to protect your digital assets.",
-      color: "text-red-400"
-    },
-    {
-      icon: Globe,
-      title: "Digital Transformation",
-      description: "End-to-end digital strategy and implementation services.",
-      color: "text-indigo-400"
-    }
-  ];
-
   return (
-    <div id='projects' className="relative min-h-screen flex items-center justify-center">
+    <Flex id='projects' className="relative min-h-screen flex items-center justify-center">
       {/* Background Image with Overlay */}
-      <div
+      <Box
         className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat z-0"
         style={{
-          backgroundColor: "darkgray",
+          backgroundColor: "purple",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-br from-black/90 via-black/85 to-black/90 backdrop-blur-sm" />
-      </div>
+        <Box className="absolute inset-0 bg-gradient-to-br from-black/90 via-black/85 to-black/90 backdrop-blur-sm" />
+      </Box>
 
       {/* Content */}
-      <div className="relative z-10 w-full grid grid-cols-1 lg:grid-cols-5 gap-8 items-center px-6 md:px-20 text-white">
-        {/* Services Grid */}
-        <motion.div 
-          variants={serviceVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="lg:col-span-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+      <Box w="100%" className="relative z-10">
+        <MotionBox
+          initial={{ opacity: 0, y: -50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          marginY={{ base: "10", md: "18", lg: "16" }}
+          paddingX={{ base: "8", md: "32" }}
+          paddingY={{ base: "8", md: "16" }}
+          display="flex"
+          flexDirection="column"
         >
-          {services.map((service, index) => (
-            <motion.div
-              key={index}
-              variants={serviceVariants}
-              className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-6 space-y-4 hover:bg-white/20 transition-all duration-300 hover:scale-105"
-            >
-              <service.icon className={`w-12 h-12 ${service.color}`} />
-              <h3 className="text-xl font-semibold">{service.title}</h3>
-              <p className="text-gray-300 text-sm">{service.description}</p>
-            </motion.div>
-          ))}
-        </motion.div>
-        {/* Section Title */}
-        <motion.div 
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.7 }}
-          className="lg:col-span-2 space-y-6"
-        >
-          <Text className='bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-green-500 to-purple-400' fontWeight="bold" textStyle="5xl">
-            Our Digital <br />
-            <span>Services & Solutions</span>
+          <Heading as="h4" className='bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-green-500 to-purple-400' fontWeight="bold" textStyle="5xl">
+            Our Digital <span className='bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-green-500 to-purple-400'> Services & Solutions</span>
+          </Heading>
+          <Text className="text-sm font-playfair font-semibold md:text-xl lg:text-2xl text-center lg:text-left">
+            Our goal is to build strong relationships with our clients by earning their trust and satisfaction. We strive to provide exceptional service that makes them feel valued and appreciated.
           </Text>
-          <p className="text-gray-300 text-lg">
-            We transform businesses through innovative technology, delivering 
-            comprehensive solutions that drive growth, efficiency, and competitive advantage.
-          </p>
-        </motion.div>
-      </div>
-    </div>
+        </MotionBox>
+        <Box
+          className="flex flex-col md:flex-row items-center justify-center p-4 md:p-8 gap-4"
+          paddingX={{ base: "8", md: "32" }}
+          paddingY={{ base: "8", md: "16" }}
+        >
+          {
+            projects.map((project, index) => (
+              <MotionBox
+                className="flex flex-col items-center justify-center p-4 md:p-8"
+                key={index}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+              >
+                <Box className="flex-1">
+                  <img src={project.imageUrl} alt={project.title} className="w-full h-full object-cover rounded-lg shadow-lg" />
+                </Box>
+                <Box className="flex-1 space-y-4">
+                  <Heading className="font-montserrat" as="h4" fontWeight="bold" fontSize="2xl" marginY="4" color="white">
+                    {project.title}
+                  </Heading>
+                  <Text className="text-base font-semibold md:text-lg lg:text-xl text-gray-300" marginY="2">
+                    {project.description}
+                  </Text>
+                  <Text className="text-sm md:text-base lg:text-lg text-gray-400 italic">
+                    Tech Stack: {project.stack}
+                  </Text>
+                </Box>
+              </MotionBox>
+            )
+          )}
+        </Box>
+      </Box>
+    </Flex>
   );
 };
 

@@ -162,8 +162,8 @@ function Services() {
           <Stack
             direction={{ base: "column", md: "row" }}
             gap={{ base: "8", md: "20" }}
-            marginY={{ base: "20", md: "24", lg: "48" }}
-            paddingX={{ base: "4", md: "8", lg: "12" }}
+            marginY={{ base: "10", md: "12", lg: "16" }}
+            paddingX={{ base: "4", md: "12", lg: "12" }}
             align="center"
             justify="space-between"
             className="w-full"
@@ -182,25 +182,15 @@ function Services() {
                 We provide a diverse range of services tailored to meet your specific needs. From design to development, we deliver impactful solutions that drive your business forward. Let us help you reach your goals with our expertise and innovative approach.
               </p>
             </MotionBox>
-            {/* <motion.Box direction="column" w={{ base: "100%", md: "30%" }}>
-              <Text className='bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-green-500 to-purple-400' fontWeight="bold" textStyle="5xl">
-                Our Services
-              </Text>
-              <p className="text-sm font-playfair font-semibold md:text-xl lg:text-2xl text-center lg:text-left">
-                We provide a diverse range of services tailored to meet your specific needs. From design to development, we deliver impactful solutions that drive your business forward. Let us help you reach your goals with our expertise and innovative approach.
-              </p>
-            </motion.Box> */}
-
-            {/* Services Grid */}
             <MotionBox
               direction="column"
               w={{ base: "100%", md: "70%" }}
               className="justify-center items-center lg:items-end lg:justify-start lg:col-span-3"
-              initial={{ opacity: 0, y: -50 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 1 }}
             >
-              <Box className="-mx-4 flex flex-wrap">
+              <Box className="flex flex-wrap">
                 {servicesData.map((service, index) => (
                   <ServiceCard
                     key={index}
