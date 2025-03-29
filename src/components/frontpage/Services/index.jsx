@@ -1,35 +1,35 @@
 import { Button } from '../../ui/button'
-import { Heading, Text } from '@chakra-ui/react'
+import { Box, Flex, Heading, Stack, Text } from '@chakra-ui/react'
 import React from 'react'
 
 // Service Card Component
 const ServiceCard = ({ icon, title, description, delay }) => (
-  <div className="w-full px-4 md:w-1/2 lg:w-1/3 xl:w-1/4 hover:bg-purple-400 hover:text-black hover:rounded-md hover:scale-105" style={{ padding: 20 }}>
-    <div className="wow fadeInUp group mb-12 text-center flex flex-col items-center" data-wow-delay={delay}>
+  <Box paddingY="5" paddingX="2" className="w-full px-4 md:w-1/2 lg:w-1/3 xl:w-1/4 hover:bg-purple-400 hover:text-black hover:rounded-md hover:scale-105">
+    <Box gapY="5" className="wow fadeInUp group mb-12 text-center flex flex-col items-center" data-wow-delay={delay}>
       
       {/* Icon Container */}
-      <div className="relative z-10 mb-6 flex h-[70px] w-[70px] items-center justify-center rounded-xl bg-purple-200 text-purple-600 mx-auto" style={{marginBottom: 20}}>
+      <Box className="relative z-10 mb-4 flex h-[60px] w-[60px] items-center justify-center rounded-xl bg-purple-200 text-purple-600 mx-auto">
         <span className="absolute inset-0 -z-[1] flex items-center justify-center rounded-xl bg-purple-700 bg-opacity-20 rotate-25 transition-transform duration-300 group-hover:rotate-45" />
         {icon}
-      </div>
+      </Box>
 
       {/* Title */}
-      <Heading as="h2" size="2xl" className="mb-3 text-xl font-bold text-center" fontWeight="bold" colorPalette="teal" style={{marginBottom: 10}}>
+      <Heading as="h2" size="md" className="mb-2 text-lg font-semibold text-center" fontWeight="bold" colorPalette="teal">
         {title}
       </Heading>
 
       {/* Description */}
-      <Text size="sm" className="mb-6 text-body-color dark:text-dark-6 text-center max-w-[300px]" style={{marginBottom: 20}}>
+      <Text size="sm" className="mb-4 text-body-color dark:text-dark-6 text-center max-w-[280px]">
         {description}
       </Text>
 
       {/* Learn More Link */}
-      <Button className="text-base font-medium text-dark transition-colors hover:text-purple-600 dark:text-white dark:hover:text-purple-600 inline-block">
+      <Button className="text-sm font-medium text-dark transition-colors hover:text-purple-600 dark:text-white dark:hover:text-purple-600 inline-block">
         Learn More →
       </Button>
       
-    </div>
-  </div>
+    </Box>
+  </Box>
 )
 
 // Service Icons Components
@@ -84,49 +84,49 @@ const servicesData = [
   {
     icon: <ServiceIcons.CustomSoftware />,
     title: "Custom Software Development",
-    description: "Bring your ideas to life with software tailored precisely to your needs. We design and develop custom applications that streamline operations, enhance user experience, and scale with your growth.",
+    description: "We build custom software that streamlines operations, enhances user experience, and grows with your business.",
     delay: ".1s"
   },
   {
     icon: <ServiceIcons.MobileApp />,
     title: "Mobile App Development",
-    description: "Our team specializes in creating intuitive, feature-rich mobile applications for iOS and Android platforms. From ideation to launch, we ensure your app is ready to make a strong impression in the market.",
+    description: "We develop intuitive, feature-rich mobile apps for iOS and Android, guiding you from idea to launch.",
     delay: ".15s"
   },
   {
     icon: <ServiceIcons.WebDev />,
     title: "Web Development",
-    description: "A strong online presence is essential. We build responsive, secure, and visually stunning websites that reflect your brand and engage your audience, whether it's a single-page application or an advanced web platform.",
+    description: "We create responsive, secure, and visually stunning websites that elevate your brand and engage your audience.",
     delay: ".2s"
   },
   {
     icon: <ServiceIcons.Cloud />,
     title: "Cloud Solutions & Migration",
-    description: "Scale and secure your business with cloud solutions that offer flexibility and reliability. Our cloud migration services help you transition seamlessly, reducing downtime and improving performance.",
+    description: "We provide secure, scalable cloud solutions and seamless migration services, minimizing downtime and maximizing performance.",
     delay: ".25s"
   },
   {
     icon: <ServiceIcons.DataAnalytics />,
     title: "Data Analytics & AI Integration",
-    description: "Leverage the power of data to make informed decisions. Our analytics and AI integration services help you gain actionable insights, optimize operations, and drive growth.",
+    description: "We integrate analytics and AI to deliver actionable insights, optimize operations, and drive business growth.",
     delay: ".1s"
   },
   {
     icon: <ServiceIcons.Consulting />,
     title: "IT Consulting & Strategy",
-    description: "Need guidance on your tech journey? Our consulting services provide expert insights to help you define, plan, and execute a technology roadmap aligned with your business goals.",
+    description: "Our consulting services offer expert guidance to help you define, plan, and execute a tech roadmap that aligns with your business goals.",
     delay: ".15s"
   },
   {
     icon: <ServiceIcons.GraphicDesign />,
     title: "Graphic Design",
-    description: "Enhance your brand identity with visually compelling graphic design. From logos to full brand kits and marketing collateral, we create designs that communicate your message effectively and leave a lasting impression.",
+    description: "We craft visually compelling designs, from logos to full brand kits, that effectively communicate your message and leave a lasting impression.",
     delay: ".2s"
   },
   {
     icon: <ServiceIcons.Photography />,
     title: "Photography",
-    description: "Captivate your audience with high-quality photography. Whether it's for product showcases, corporate events, or lifestyle shots, our photography services ensure that your visuals tell a powerful story.",
+    description: "Capture your audience’s attention with high-quality photography that tells a powerful story, whether for products, events, or lifestyle shots.",
     delay: ".25s"
   }
 ]
@@ -134,9 +134,9 @@ const servicesData = [
 function Services() {
   return (
     <>
-      <div id='services' className="relative min-h-screen flex items-center justify-center">
+      <Flex id='services' className="relative min-h-screen flex items-center justify-center">
         {/* Background Image with Overlay */}
-        <div
+        <Box
           className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat z-0"
           style={{
             backgroundColor: "darkgray",
@@ -144,39 +144,47 @@ function Services() {
             backgroundPosition: "center",
           }}
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-black/90 via-black/85 to-black/90 backdrop-blur-sm" />
-        </div>
+          <Box className="absolute inset-0 bg-gradient-to-br from-black/90 via-black/85 to-black/90 backdrop-blur-sm" />
+        </Box>
 
         {/* Content */}
-        <div className="relative z-10 w-full grid grid-cols-1 lg:grid-cols-5 gap-8 items-center px-6 md:px-20 text-white">
-          {/* Services Header */}
-          <div className="flex flex-col justify-center items-center lg:items-center lg:justify-center lg:p-0 p-10 lg:col-span-2">
-            <Text className='bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-green-500 to-purple-400' fontWeight="bold" textStyle="5xl">
-              Our Services
-            </Text>
-            <div className='flex flex-col items-center lg:items-start' style={{ maxWidth: "700px", padding: "20px" }}>
-              <p className="text-lg md:text-xl lg:text-2xl text-center lg:text-left">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi 
-              </p>
-            </div>
-          </div>
+        <Box w="100%" className="relative z-10">
+          <Stack
+            direction={{ base: "column", md: "row" }}
+            gap={{ base: "8", md: "20" }}
+            marginY={{ base: "20", md: "24", lg: "48" }}
+            paddingX={{ base: "4", md: "8", lg: "12" }}
+            align="center"
+            justify="space-between"
+            className="w-full"
+          >
+            {/* Services Header */}
+            <Box direction="column" w={{ base: "100%", md: "30%" }}>
+                <Text className='bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-green-500 to-purple-400' fontWeight="bold" textStyle="5xl">
+                  Our Services
+                </Text>
+                <p className="text-sm font-playfair font-semibold md:text-xl lg:text-2xl text-center lg:text-left">
+                  We provide a diverse range of services tailored to meet your specific needs. From design to development, we deliver impactful solutions that drive your business forward. Let us help you reach your goals with our expertise and innovative approach.
+                </p>
+            </Box>
 
-          {/* Services Grid */}
-          <div className="flex flex-col justify-center items-center lg:items-end lg:justify-start lg:col-span-3">
-            <div className="-mx-4 flex flex-wrap lg:p-4">
-              {servicesData.map((service, index) => (
-                <ServiceCard
-                  key={index}
-                  icon={service.icon}
-                  title={service.title}
-                  description={service.description}
-                  delay={service.delay}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
+            {/* Services Grid */}
+            <Box direction="column" w={{ base: "100%", md: "70%" }} className="justify-center items-center lg:items-end lg:justify-start lg:col-span-3">
+              <Box className="-mx-4 flex flex-wrap">
+                {servicesData.map((service, index) => (
+                  <ServiceCard
+                    key={index}
+                    icon={service.icon}
+                    title={service.title}
+                    description={service.description}
+                    delay={service.delay}
+                  />
+                ))}
+              </Box>
+            </Box>
+          </Stack>
+        </Box>
+      </Flex>
     </>
   )
 }

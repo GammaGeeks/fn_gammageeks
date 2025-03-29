@@ -1,3 +1,4 @@
+import { Box } from '@chakra-ui/react'
 import ContactSection from './components/frontpage/ContactSection'
 import Hero from './components/frontpage/Hero'
 import Nav from './components/frontpage/Nav'
@@ -8,7 +9,7 @@ import WebsiteSections from './components/frontpage/Team'
 function App() {
 
   return (
-    <>
+    <Box className="bg-gray-900 text-white">
       <Hero />
       <Nav />
       <Services />
@@ -19,7 +20,7 @@ function App() {
         <p>&copy; 2023 Your Company Name. All rights reserved.</p> 
         <p>Privacy Policy | Terms of Service</p>
       </footer>
-    </>
+    </Box>
   )
 }
 
