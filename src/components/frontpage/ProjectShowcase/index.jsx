@@ -7,14 +7,14 @@ const MotionBox = motion(chakra.div);
 const projects = [
   {
     title: "Kigaluxe Web Application",
-    description: "Kigaluxe is a web application that provides a platform for users to explore and book luxury accommodations in Kigali, Rwanda. The application features a user-friendly interface, advanced search options, and secure payment processing.",
+    description: "Kigaluxe is a web application that provides a platform for users to explore and book luxury accommodations in Kigali, Rwanda. The application features a user-friendly interface, and advanced search options.",
     imageUrl: "https://d1frnxkutzpamu.cloudfront.net/utils/gammageeks/kigaluxe.png",
     stack: "UI/UX, React, Node.js",
   },
   {
     title: "Tura Estate Web Application",
     description: "Tura Estate is a web application that offers a comprehensive solution for real estate management. It allows users to list properties, manage bookings, and communicate with potential buyers or renters.",
-    imageUrl: "https://d1frnxkutzpamu.cloudfront.net/utils/gammageeks/tura.png",
+    imageUrl: "https://tura-s3.s3.af-south-1.amazonaws.com/utils/gammageeks/tura.png",
     stack: "UI/UX, React, Node.js",
   },
 ];
@@ -42,7 +42,7 @@ const ProjectShowcase = () => {
           transition={{ duration: 0.8 }}
           marginY={{ base: "10", md: "18", lg: "16" }}
           paddingX={{ base: "8", md: "32" }}
-          paddingY={{ base: "8", md: "16" }}
+          paddingTop={{ base: "8", md: "16" }}
           display="flex"
           flexDirection="column"
         >
@@ -54,9 +54,9 @@ const ProjectShowcase = () => {
           </Text>
         </MotionBox>
         <Box
-          className="flex flex-col md:flex-row items-center justify-center p-4 md:p-8 gap-4"
+          className="flex flex-col md:flex-row items-center justify-center gap-4"
           paddingX={{ base: "8", md: "32" }}
-          paddingY={{ base: "8", md: "16" }}
+          paddingBottom={{ base: "8", md: "16" }}
         >
           {
             projects.map((project, index) => (
