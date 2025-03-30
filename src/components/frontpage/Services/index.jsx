@@ -187,7 +187,7 @@ function Services() {
               w={{ base: "100%", md: "70%" }}
               className="justify-center items-center lg:items-end lg:justify-start lg:col-span-3"
               initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1 }}
             >
               <Box className="flex flex-wrap">

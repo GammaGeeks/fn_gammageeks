@@ -1,10 +1,12 @@
 import { Button } from "../../ui/button";
-import { Box, Container, Flex, Stack, Text } from "@chakra-ui/react"
+import { Box, Container, Flex, Stack, Text, chakra } from "@chakra-ui/react"
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import logo from '../../../assets/logo/gammageeks2.png';
 import './style.css'
+
+const MotionBox = motion(chakra.div);
 
 export default function Hero() {
   return (
@@ -13,14 +15,14 @@ export default function Hero() {
       <Box 
         className="fixed inset-0 w-full h-full bg-cover bg-center bg-no-repeat z-0"
         style={{
-          backgroundImage: "url('https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg')",
+          backgroundImage: "url('https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",
         }}
       >
-        <Box className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/70 to-black/80 backdrop-blur-md" />
+        <Box className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/90 to-black/80 backdrop-blur-none" />
       </Box>
 
       {/* Main Content */}
-      <Box width="100%" className="relative z-10 p-16 md:p-32">
+      <Box width="100%" className="relative z-10">
         <Stack 
           direction={{ base: "column", md: "row" }} 
           gap={{ base: "8", md: "10" }} 
@@ -41,9 +43,9 @@ export default function Hero() {
 const Tablet = () => (
   <>
     {/* Tablet Design */}
-    <motion.Box
+    <MotionBox
         initial={{ opacity: 0, x: 100 }}
-        whileInView={{ opacity: 1, x: 0 }}
+        animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8 }}
         className="relative flex flex-col items-center mt-16 lg:mt-0 py-5 px-8 md:px-52"
       >
@@ -55,7 +57,7 @@ const Tablet = () => (
             <Box className="w-16 h-1 bg-gray-800 rounded-full" />
           </Box>
           {/* Code Editor Content */}
-          <motion.Box 
+          <MotionBox 
             className="mt-12 text-left p-24"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -82,10 +84,10 @@ const Tablet = () => (
                 />
               </Box>
             </Box>
-          </motion.Box>
+          </MotionBox>
           {/* Animated Gradient Elements */}
           <Box className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-purple-500/10 to-transparent" />
-          <motion.Box
+          <MotionBox
             className="absolute w-48 h-48 bg-purple-500/20 rounded-full blur-3xl"
             animate={{
               x: [0, 100, -100, 0],
@@ -99,24 +101,24 @@ const Tablet = () => (
           />
         </Box>
         {/* Decorative Background Glow */}
-        <Box className="absolute -z-10 w-full h-full blur-3xl opacity-20 bg-gradient-to-r from-purple-500 via-pink-500 to-purple-500 rounded-full animate-slow-pulse" />
-      </motion.Box>
+        <Box className="absolute -z-10 w-full h-full blur-3xl opacity-20 bg-gradient-to-r from-black via-pink-500 to-purple-500 rounded-full animate-slow-pulse" />
+      </MotionBox>
   </>
 )
 
 const HeroText = () => (
   <>
     <Container className="p-8 md:p-12 lg:p-16">
-      <motion.Box
+      <MotionBox
         className="flex items-center justify-center mb-12 md:mb-16 p-8"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
       >
         <img src={logo} alt="Logo" className="w-92 h-92 md:w-80 md:h-80 lg:w-92 lg:h-92" />
-      </motion.Box>
+      </MotionBox>
       <Box className="text-center md:text-left">
-        <motion.Box
+        <MotionBox
           className="flex flex-col items-center md:items-center space-y-6 md:space-y-8 gap-4 md:gap-6"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -132,20 +134,33 @@ const HeroText = () => (
             Elevate your digital presence with cutting-edge solutions that transform ideas into remarkable experiences.
           </motion.p>
           
-          <motion.Box 
+          <MotionBox 
             className="flex flex-col sm:flex-row gap-6 mt-12 px-4 md:px-0 w-full md:w-auto"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <Button colorPalette="purple" variant="solid" className="bg-gradient-to-r from-blue-500 to-purple-500 text-white px-8 py-4 lg:px-10 lg:py-5 flex items-center gap-2 hover:opacity-90 rounded-full transition-all duration-300 shadow-lg hover:shadow-blue-500/20 text-lg lg:text-xl">
+            <Button
+              as="a"
+              href="#contact"
+              color="white"
+              colorPalette="green"
+              variant="solid"
+            >
               Get In Touch <ArrowRight className="animate-bounce-x" size={20} />
             </Button>
-            <Button className="bg-transparent border-2 border-white/30 px-8 py-4 lg:px-10 lg:py-5 flex items-center gap-2 hover:bg-white hover:text-black rounded-full transition-all duration-300 backdrop-blur-sm text-lg lg:text-xl">
+            <Button
+            
+              as="a"
+              href="#projects"
+              color="white"
+              colorPalette="purple"
+              variant="solid"
+            >
               Our Work <ArrowRight size={20} />
             </Button>
-          </motion.Box>
-        </motion.Box>
+          </MotionBox>
+        </MotionBox>
       </Box>
     </Container>
   </>

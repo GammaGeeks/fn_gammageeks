@@ -30,7 +30,7 @@ const Nav = () => {
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
           <a href="#home">
-            <Box paddingY='4' paddingX='8'><img src={logo} alt="Logo" className="w-88 object-contain hover:scale-105 transition-transform duration-300"/></Box>
+            <Box paddingY='4' paddingX={{base: 4, md: 36}}><img src={logo} alt="Logo" className="w-72 object-contain hover:scale-105 transition-transform duration-300"/></Box>
           </a>
 
           {/* Desktop Menu */}
@@ -50,18 +50,49 @@ const Nav = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="lg:hidden text-white hover:text-blue-400 transition">
-            {isMobileMenuOpen ? (
-              <CloseIcon />
-            ) : (
-              <MenuIcon />
-            )}
-          </button>
+          <Box
+            paddingX={{ base: 4, md: 36 }}
+          >
+            <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="lg:hidden text-white hover:text-blue-400 transition">
+              {isMobileMenuOpen ? (
+                <CloseIcon />
+              ) : (
+                <MenuIcon />
+              )}
+            </button>
+          </Box>
         </div>
 
         {/* Mobile Menu */}
-        <div className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${isMobileMenuOpen ? "max-h-screen opacity-100 py-4" : "max-h-0 opacity-0"}`}>
-          <div className="space-y-4">
+        <div className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${isMobileMenuOpen ? "h-screen opacity-100 py-4" : "max-h-0 opacity-0"}`}>
+          <Box
+            as="nav"
+            h="full"
+            paddingY="4"
+            paddingX="4"
+            gap="4"
+            display="flex"
+            flexDirection="column"
+            alignItems="center"
+            justifyContent="center"
+            backgroundColor="black/90"
+            // backdropBlur="md"
+            // boxShadow="md"
+            // borderRadius="lg"
+            // position="absolute"
+            // top="0"
+            // left="0"
+            // right="0"
+            // zIndex="50"
+            // marginTop="4"
+            // marginBottom="4"
+            // marginX="auto"
+            // width="90%"
+            // maxWidth="400px"
+            // borderWidth="1px"
+            // borderColor="white/10"
+            // borderStyle="solid"
+          >
             {navItems.map((item) => (
               <MobileNavLink key={item.href} href={item.href} isActive={activePage === item.href} onClick={() => {
                 setActivePage(item.href);
@@ -70,8 +101,20 @@ const Nav = () => {
                 {item.text}
               </MobileNavLink>
             ))}
-            <Button text="Get Started" fullWidth />
-          </div>
+            <Button
+              variant="solid"
+              onClick={() => setIsMobileMenuOpen(false)}
+              as="a"
+              href="#contact"
+              color="white"
+              colorPalette="green"
+              w="100%"
+              paddingY="4"
+              paddingX="8"
+            >
+              Get in touch
+            </Button>
+          </Box>
         </div>
       </div>
     </nav>
