@@ -162,7 +162,7 @@ function Services() {
           <Stack
             direction={{ base: "column", md: "row" }}
             gap={{ base: "8", md: "20" }}
-            marginY={{ base: "10", md: "12", lg: "16" }}
+            marginY={{ base: "24", md: "18", lg: "16" }}
             paddingX={{ base: "4", md: "12", lg: "12" }}
             align="center"
             justify="space-between"
@@ -171,13 +171,14 @@ function Services() {
             <MotionBox
               direction="column"
               w={{ base: "100%", md: "30%" }}
+              marginY={{ base: "0", md: "20" }}
               paddingX={{ base: "4", md: "0" }}
               justify={{ base: "center", md: "flex-start" }}
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <Text className='bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-green-500 to-purple-400' fontWeight="bold" textStyle="5xl">
+              <Text className='bg-clip-text text-transparent text-center md:text-start bg-gradient-to-r from-blue-400 via-green-500 to-purple-400' fontWeight="bold" textStyle="5xl">
                 Our Services
               </Text>
               <p className="text-sm font-playfair font-semibold md:text-xl lg:text-2xl text-center lg:text-left">

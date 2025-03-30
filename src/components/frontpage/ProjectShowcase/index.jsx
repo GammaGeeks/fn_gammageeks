@@ -40,7 +40,7 @@ const ProjectShowcase = () => {
           initial={{ opacity: 0, y: -50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          marginY={{ base: "10", md: "18", lg: "16" }}
+          marginY={{ base: "24", md: "18", lg: "16" }}
           paddingX={{ base: "8", md: "32" }}
           paddingTop={{ base: "8", md: "16" }}
           display="flex"

@@ -26,28 +26,33 @@ const Nav = () => {
 
   return (
     <nav className={`sticky top-0 w-full z-50 transition-all duration-300 ${navBackground} backdrop-blur-md shadow-lg`}>
-      <div className="w-full px-6">
-        <div className="flex justify-between items-center py-4">
+      <Box className="w-full px-6">
+        <Box className="flex justify-between items-center py-4">
           {/* Logo */}
           <a href="#home">
             <Box paddingY='4' paddingX={{base: 4, md: 36}}><img src={logo} alt="Logo" className="w-72 object-contain hover:scale-105 transition-transform duration-300"/></Box>
           </a>
 
           {/* Desktop Menu */}
-          <div className="hidden lg:flex items-center justify-around space-x-6 gap-0 lg:gap-12" style={{ padding: '15px 15px 15px 15px', marginRight: 40 }}>
-            <div className="flex justify-around gap-4">
+          <Box
+            className="hidden lg:flex items-center justify-around space-x-6 gap-0 lg:gap-12"
+            as="nav"  
+            paddingY="4"
+            paddingX="36"
+          >
+            <Box className="flex justify-around gap-4">
               {navItems.map((item) => (
                 <NavLink key={item.href} href={item.href} isActive={activePage === item.href} onClick={() => setActivePage(item.href)}>
                   {item.text}
                 </NavLink>
               ))}
-            </div>
-            <div className="flex items-center">
+            </Box>
+            <Box className="flex items-center">
               <Button colorPalette="purple" variant="solid" className="bg-gradient-to-r from-blue-500 to-purple-500 text-white px-8 py-4 lg:px-10 lg:py-5 flex items-center gap-2 hover:opacity-90 rounded-full transition-all duration-300 shadow-lg hover:shadow-blue-500/20 text-lg lg:text-xl">
                 Get in touch
               </Button>
-            </div>
-          </div>
+            </Box>
+          </Box>
 
           {/* Mobile Menu Button */}
           <Box
@@ -61,10 +66,10 @@ const Nav = () => {
               )}
             </button>
           </Box>
-        </div>
+        </Box>
 
         {/* Mobile Menu */}
-        <div className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${isMobileMenuOpen ? "h-screen opacity-100 py-4" : "max-h-0 opacity-0"}`}>
+        <Box className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${isMobileMenuOpen ? "h-screen opacity-100 py-4" : "max-h-0 opacity-0"}`}>
           <Box
             as="nav"
             h="full"
@@ -115,8 +120,8 @@ const Nav = () => {
               Get in touch
             </Button>
           </Box>
-        </div>
-      </div>
+        </Box>
+      </Box>
     </nav>
   );
 };
