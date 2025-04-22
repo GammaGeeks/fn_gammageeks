@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, ArrowRight, Linkedin, Twitter, Github } from 'lucide-react';
+import { Box, Flex, Heading, Text, chakra } from '@chakra-ui/react';
+
+const MotionBox = motion(chakra.div);
 
 const WebsiteSections = () => {
   const [formData, setFormData] = useState({
@@ -66,14 +69,142 @@ const WebsiteSections = () => {
   return (
     <>
       {/* About Us Section */}
-      <section id="about" className="py-20 bg-white">
-        <div className="container mx-auto px-6 md:px-20">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <motion.div
+      <Flex id="about" className="relative min-h-screen flex items-center justify-center">
+        {/* Background Image with Overlay */}
+        <Box
+          className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat z-0"
+          style={{
+            backgroundColor: "purple",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        >
+          <Box className="absolute inset-0 bg-gradient-to-br from-black/90 via-black/85 to-black/90 backdrop-blur-sm" />
+        </Box>
+        <Box w="100%" className="relative z-10">
+          <MotionBox
+            initial={{ opacity: 0, y: -50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            marginY={{ base: "24", md: "18", lg: "16" }}
+            paddingX={{ base: "8", md: "32" }}
+            paddingTop={{ base: "8", md: "16" }}
+            display="flex"
+            flexDirection="column"
+          >
+            <Heading as="h4" className='bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-green-500 to-purple-400' fontWeight="bold" textStyle="5xl">
+              Our <span className='bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-green-500 to-purple-400'> Workspace</span>
+            </Heading>
+            <Text className="text-sm font-playfair font-semibold md:text-xl lg:text-2xl text-center lg:text-left">
+              Our goal is to build strong relationships with our clients by earning their trust and satisfaction. We strive to provide exceptional service that makes them feel valued and appreciated.
+            </Text>
+          </MotionBox>
+          <Box
+            className="-mx-4 flex flex-wrap items-center"
+            paddingX={{ base: "8", md: "32" }}
+            paddingBottom={{ base: "8", md: "16" }}
+          >
+            <MotionBox
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
               variants={fadeInUp}
+              className="w-full px-4 lg:w-1/2"
+            >
+              <div className="mb-12 max-w-[540px] lg:mb-0">
+                <h2 className="mb-5 text-3xl font-bold leading-tight text-dark dark:text-white sm:text-[40px] sm:leading-[1.2]">
+                  Brilliant Toolkit to Build Nextgen Website Faster.
+                </h2>
+                <p className="mb-10 text-base leading-relaxed text-body-color dark:text-dark-6">
+                  The main &apos;thrust&apos; is to focus on educating attendees on how to
+                  best protect highly vulnerable business applications with
+                  interactive panel discussions and roundtables led by subject
+                  matter experts.
+                  <br />
+                  <br />
+                  The main &apos;thrust&lsquo; is to focus on educating attendees on how to
+                  best protect highly vulnerable business applications with
+                  interactive panel.
+                </p>
+                <a href="javascript:void(0)" className="inline-flex items-center justify-center rounded-md border border-primary bg-primary px-7 py-3 text-center text-base font-medium text-white hover:border-blue-dark hover:bg-blue-dark">
+                  Know More
+                </a>
+              </div>
+            </MotionBox>
+            <MotionBox
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeInUp}
+              className="w-full px-4 lg:w-1/2"
+            >
+              <div className="-mx-2 flex flex-wrap sm:-mx-4 lg:-mx-2 xl:-mx-4">
+                <div className="w-full px-2 sm:w-1/2 sm:px-4 lg:px-2 xl:px-4">
+                  <div className="mb-4 sm:mb-8 sm:h-[400px] md:h-[540px] lg:h-[400px] xl:h-[500px]">
+                    <img src="https://d1frnxkutzpamu.cloudfront.net/utils/gammageeks/about_1.jpg" alt="about image" className="h-full w-full object-cover object-center" />
+                  </div>
+                </div>
+                <div className="w-full px-2 sm:w-1/2 sm:px-4 lg:px-2 xl:px-4">
+                  <div className="mb-4 sm:mb-8 sm:h-[220px] md:h-[346px] lg:mb-4 lg:h-[225px] xl:mb-8 xl:h-[310px]">
+                    <img src="https://d1frnxkutzpamu.cloudfront.net/utils/gammageeks/about_2.jpg" alt="about image" className="h-full w-full object-cover object-center" />
+                  </div>
+                  <div className="relative z-10 mb-4 flex items-center justify-center overflow-hidden bg-primary px-6 py-12 sm:mb-8 sm:h-[160px] sm:p-5 lg:mb-4 xl:mb-8">
+                    <div>
+                      <span className="block text-5xl font-extrabold text-white">
+                        06
+                      </span>
+                      <span className="block text-base font-semibold text-white">
+                        We have
+                      </span>
+                      <span className="block text-base font-medium text-white text-opacity-70">
+                        Years of experience
+                      </span>
+                    </div>
+                    <div>
+                      <span className="absolute left-0 top-0 -z-10">
+                        <svg width={106} height={144} viewBox="0 0 106 144" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <rect opacity="0.1" x={-67} y="47.127" width="113.378" height="131.304" transform="rotate(-42.8643 -67 47.127)" fill="url(#paint0_linear_1416_214)" />
+                          <defs>
+                            <linearGradient id="paint0_linear_1416_214" x1="-10.3111" y1="47.127" x2="-10.3111" y2="178.431" gradientUnits="userSpaceOnUse">
+                              <stop stopColor="white" />
+                              <stop offset={1} stopColor="white" stopOpacity={0} />
+                            </linearGradient>
+                          </defs>
+                        </svg>
+                      </span>
+                      <span className="absolute right-0 top-0 -z-10">
+                        <svg width={130} height={97} viewBox="0 0 130 97" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <rect opacity="0.1" x="0.86792" y="-6.67725" width="155.563" height="140.614" transform="rotate(-42.8643 0.86792 -6.67725)" fill="url(#paint0_linear_1416_215)" />
+                          <defs>
+                            <linearGradient id="paint0_linear_1416_215" x1="78.6495" y1="-6.67725" x2="78.6495" y2="133.937" gradientUnits="userSpaceOnUse">
+                              <stop stopColor="white" />
+                              <stop offset={1} stopColor="white" stopOpacity={0} />
+                            </linearGradient>
+                          </defs>
+                        </svg>
+                      </span>
+                      <span className="absolute bottom-0 right-0 -z-10">
+                        <svg width={175} height={104} viewBox="0 0 175 104" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <rect opacity="0.1" x="175.011" y="108.611" width="101.246" height="148.179" transform="rotate(137.136 175.011 108.611)" fill="url(#paint0_linear_1416_216)" />
+                          <defs>
+                            <linearGradient id="paint0_linear_1416_216" x1="225.634" y1="108.611" x2="225.634" y2="256.79" gradientUnits="userSpaceOnUse">
+                              <stop stopColor="white" />
+                              <stop offset={1} stopColor="white" stopOpacity={0} />
+                            </linearGradient>
+                          </defs>
+                        </svg>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </MotionBox>
+            <MotionBox
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeInUp}
+              marginY={{ base: "80" }}
               className="space-y-6"
             >
               <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
@@ -106,8 +237,8 @@ const WebsiteSections = () => {
                   <p className="text-gray-600">Countries Served</p>
                 </div>
               </div>
-            </motion.div>
-            <motion.div
+            </MotionBox>
+            <MotionBox
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -120,15 +251,26 @@ const WebsiteSections = () => {
                 alt="Our workspace" 
                 className="absolute -top-8 -left-8 md:-top-12 md:-left-12 w-full h-80 md:h-96 object-cover rounded-lg shadow-xl"
               />
-            </motion.div>
-          </div>
-        </div>
-      </section>
+            </MotionBox>
+          </Box>
+        </Box>
+      </Flex>
 
       {/* Team Section */}
-      <section id="team" className="py-20 bg-gray-50">
-        <div className="container mx-auto px-6 md:px-20">
-          <motion.div
+      <Flex id="team"  className="relative min-h-screen flex items-center justify-center">
+        {/* Background Image with Overlay */}
+        <Box
+          className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat z-0"
+          style={{
+            backgroundColor: "gray",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        >
+          <Box className="absolute inset-0 bg-gradient-to-br from-black/90 via-black/85 to-black/90 backdrop-blur-sm" />
+        </Box>
+        <Box className="container mx-auto px-6 md:px-20">
+          <MotionBox
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -142,9 +284,9 @@ const WebsiteSections = () => {
               Our diverse team of professionals combines creativity, technical expertise, and industry insight 
               to deliver exceptional digital solutions for our clients.
             </p>
-          </motion.div>
+          </MotionBox>
 
-          <motion.div
+          <MotionBox
             variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
@@ -152,7 +294,7 @@ const WebsiteSections = () => {
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
           >
             {teamMembers.map((member, index) => (
-              <motion.div
+              <MotionBox
                 key={index}
                 variants={fadeInUp}
                 className="bg-white rounded-xl shadow-md overflow-hidden group"
@@ -182,17 +324,17 @@ const WebsiteSections = () => {
                   <p className="text-blue-600 mb-3">{member.role}</p>
                   <p className="text-gray-600 text-sm">{member.bio}</p>
                 </div>
-              </motion.div>
+              </MotionBox>
             ))}
-          </motion.div>
-        </div>
-      </section>
+          </MotionBox>
+        </Box>
+      </Flex>
 
       {/* Contact Form Section */}
-      <section id="contact" className="py-20 bg-gray-900 text-white">
+      <Flex id="contact" className="relative min-h-screen flex items-center justify-center">
         <div className="container mx-auto px-6 md:px-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <motion.div
+            <MotionBox
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -240,9 +382,9 @@ const WebsiteSections = () => {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </MotionBox>
 
-            <motion.div
+            <MotionBox
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -307,10 +449,10 @@ const WebsiteSections = () => {
                   </motion.button>
                 </div>
               </form>
-            </motion.div>
+            </MotionBox>
           </div>
         </div>
-      </section>
+      </Flex>
     </>
   );
 };

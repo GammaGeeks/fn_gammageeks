@@ -11,7 +11,7 @@ const ServiceCard = ({ icon, title, description, delay }) => (
     <Box gapY="5" className="wow fadeInUp group mb-12 text-center flex flex-col items-center" data-wow-delay={delay}>
       
       {/* Icon Container */}
-      <Box className="relative z-10 mb-4 flex h-[60px] w-[60px] items-center justify-center rounded-xl bg-purple-200 text-purple-600 mx-auto">
+      <Box className="relative z-10 mb-4 flex h-[60px] w-[60px] items-center justify-center rounded-xl bg-purple-200 text-purple-600de mx-auto">
         <span className="absolute inset-0 -z-[1] flex items-center justify-center rounded-xl bg-purple-700 bg-opacity-20 rotate-25 transition-transform duration-300 group-hover:rotate-45" />
         {icon}
       </Box>
