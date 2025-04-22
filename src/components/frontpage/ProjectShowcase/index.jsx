@@ -14,8 +14,14 @@ const projects = [
   {
     title: "Tura Estate Web Application",
     description: "Tura Estate is a web application that offers a comprehensive solution for real estate management. It allows users to list properties, manage bookings, and communicate with potential buyers or renters.",
-    imageUrl: "https://tura-s3.s3.af-south-1.amazonaws.com/utils/gammageeks/tura.png",
+    imageUrl: "https://d1frnxkutzpamu.cloudfront.net/utils/gammageeks/tura.png",
     stack: "UI/UX, React, Node.js",
+  },
+  {
+    title: "My Roots Oline Store",
+    description: "My Roots is an online store that specializes in selling african ashion products. The website features a clean and modern design, making it easy for users to browse and purchase products.",
+    imageUrl: "https://d1frnxkutzpamu.cloudfront.net/utils/gammageeks/myroots.png",
+    stack: "Shopify, Printify, CMS",
   },
 ];
 
@@ -54,7 +60,7 @@ const ProjectShowcase = () => {
           </Text>
         </MotionBox>
         <Box
-          className="flex flex-col md:flex-row items-center justify-center gap-4"
+          className="grid grid-cols-1 md:grid-cols-2 gap-8 px-8 md:px-32 pb-8 md:pb-16"
           paddingX={{ base: "8", md: "32" }}
           paddingBottom={{ base: "8", md: "16" }}
         >
@@ -67,10 +73,10 @@ const ProjectShowcase = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
               >
-                <Box className="flex-1">
+                <div className="flex-1">
                   <img src={project.imageUrl} alt={project.title} className="w-full h-full object-cover rounded-lg shadow-lg" />
-                </Box>
-                <Box className="flex-1 space-y-4">
+                </div>
+                <div className="flex-1 space-y-4">
                   <Heading className="font-montserrat" as="h4" fontWeight="bold" fontSize="2xl" marginY="4" color="white">
                     {project.title}
                   </Heading>
@@ -80,10 +86,10 @@ const ProjectShowcase = () => {
                   <Text className="text-sm md:text-base lg:text-lg text-gray-400 italic">
                     Tech Stack: {project.stack}
                   </Text>
-                </Box>
+                </div>
               </MotionBox>
-            )
-          )}
+            ))
+          }
         </Box>
       </Box>
     </Flex>

@@ -7,7 +7,7 @@ const MotionBox = motion(chakra.div);
 
 // Service Card Component
 const ServiceCard = ({ icon, title, description, delay }) => (
-  <Box paddingY="5" paddingX="2" className="w-full px-4 md:w-1/2 lg:w-1/3 xl:w-1/4 hover:bg-purple-400 hover:text-black hover:rounded-md hover:scale-105">
+  <Box paddingY="5" paddingX="2" className="w-full px-4 md:w-1/2 lg:w-1/3 xl:w-1/4 hover:bg-[#ac684b] hover:text-black hover:rounded-md hover:scale-105">
     <Box gapY="5" className="wow fadeInUp group mb-12 text-center flex flex-col items-center" data-wow-delay={delay}>
       
       {/* Icon Container */}
