@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-// eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, ArrowRight, Linkedin, Twitter, Github } from 'lucide-react';
 import { Box, Flex, Heading, Text, chakra } from '@chakra-ui/react';
@@ -111,7 +110,7 @@ const WebsiteSections = () => {
               variants={fadeInUp}
               className="w-full px-4 lg:w-1/2"
             >
-              <div className="mb-12 max-w-[540px] lg:mb-0">
+              <div className="mb-12 max-w-full lg:mb-0">
                 <h2 className="mb-5 text-3xl font-bold leading-tight text-dark dark:text-white sm:text-[40px] sm:leading-[1.2]">
                   Brilliant Toolkit to Build Nextgen Website Faster.
                 </h2>
@@ -138,27 +137,24 @@ const WebsiteSections = () => {
               variants={fadeInUp}
               className="w-full px-4 lg:w-1/2"
             >
-              <div className="-mx-2 flex flex-wrap sm:-mx-4 lg:-mx-2 xl:-mx-4">
-                <div className="w-full px-2 sm:w-1/2 sm:px-4 lg:px-2 xl:px-4">
+              <Flex gap="4" wrap="wrap" justifyContent={{base: "start", md: "center", lg: 'center'}} >
+                <Box>
                   <div className="mb-4 sm:mb-8 sm:h-[400px] md:h-[540px] lg:h-[400px] xl:h-[500px]">
                     <img src="https://d1frnxkutzpamu.cloudfront.net/utils/gammageeks/about_1.jpg" alt="about image" className="h-full w-full object-cover object-center" />
                   </div>
-                </div>
-                <div className="w-full px-2 sm:w-1/2 sm:px-4 lg:px-2 xl:px-4">
+                </Box>
+                <Box gap={4} display="flex" flexDirection="column" justifyContent={"space-between"}>
                   <div className="mb-4 sm:mb-8 sm:h-[220px] md:h-[346px] lg:mb-4 lg:h-[225px] xl:mb-8 xl:h-[310px]">
                     <img src="https://d1frnxkutzpamu.cloudfront.net/utils/gammageeks/about_2.jpg" alt="about image" className="h-full w-full object-cover object-center" />
                   </div>
-                  <div className="relative z-10 mb-4 flex items-center justify-center overflow-hidden bg-primary px-6 py-12 sm:mb-8 sm:h-[160px] sm:p-5 lg:mb-4 xl:mb-8">
+                  <div className="relative z-10 mb-4 flex items-center justify-center overflow-hidden bg-green-400 px-6 py-12 sm:mb-8 sm:h-[160px] sm:p-5 lg:mb-4 xl:mb-8">
                     <div>
-                      <span className="block text-5xl font-extrabold text-white">
+                      <Heading as="h2" fontWeight="bold" textStyle="2xl">
                         06
-                      </span>
-                      <span className="block text-base font-semibold text-white">
-                        We have
-                      </span>
-                      <span className="block text-base font-medium text-white text-opacity-70">
+                      </Heading>
+                      <Text className="font-playfair font-semibold text-2xl text-dark dark:text-white">
                         Years of experience
-                      </span>
+                      </Text>
                     </div>
                     <div>
                       <span className="absolute left-0 top-0 -z-10">
@@ -196,8 +192,8 @@ const WebsiteSections = () => {
                       </span>
                     </div>
                   </div>
-                </div>
-              </div>
+                </Box>
+              </Flex>
             </MotionBox>
             <MotionBox
               initial="hidden"
@@ -205,7 +201,7 @@ const WebsiteSections = () => {
               viewport={{ once: true }}
               variants={fadeInUp}
               marginY={{ base: "80" }}
-              className="space-y-6"
+              className="w-full px-4 lg:w-full"
             >
               <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
                 About <span className="text-blue-600">Our Company</span>
@@ -237,20 +233,6 @@ const WebsiteSections = () => {
                   <p className="text-gray-600">Countries Served</p>
                 </div>
               </div>
-            </MotionBox>
-            <MotionBox
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="relative"
-            >
-              <div className="bg-blue-100 rounded-lg h-80 md:h-96 w-full"></div>
-              <img 
-                src="/api/placeholder/500/400" 
-                alt="Our workspace" 
-                className="absolute -top-8 -left-8 md:-top-12 md:-left-12 w-full h-80 md:h-96 object-cover rounded-lg shadow-xl"
-              />
             </MotionBox>
           </Box>
         </Box>
