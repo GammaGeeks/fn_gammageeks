@@ -80,28 +80,15 @@ const WebsiteSections = () => {
         >
           <Box className="absolute inset-0 bg-gradient-to-br from-black/90 via-black/85 to-black/90 backdrop-blur-sm" />
         </Box>
+
+        {/* Content */}
         <Box w="100%" className="relative z-10">
-          <MotionBox
-            initial={{ opacity: 0, y: -50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            marginY={{ base: "24", md: "18", lg: "16" }}
-            paddingX={{ base: "8", md: "32" }}
-            paddingTop={{ base: "8", md: "16" }}
-            display="flex"
-            flexDirection="column"
-          >
-            <Heading as="h4" className='bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-green-500 to-purple-400' fontWeight="bold" textStyle="5xl">
-              Our <span className='bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-green-500 to-purple-400'> Workspace</span>
-            </Heading>
-            <Text className="text-sm font-playfair font-semibold md:text-xl lg:text-2xl text-center lg:text-left">
-              Our goal is to build strong relationships with our clients by earning their trust and satisfaction. We strive to provide exceptional service that makes them feel valued and appreciated.
-            </Text>
-          </MotionBox>
           <Box
             className="-mx-4 flex flex-wrap items-center"
             paddingX={{ base: "8", md: "32" }}
             paddingBottom={{ base: "8", md: "16" }}
+            marginY={{ base: "24", md: "18", lg: "16" }}
+            paddingTop={{ base: "8", md: "16" }}
           >
             <MotionBox
               initial="hidden"
@@ -111,44 +98,63 @@ const WebsiteSections = () => {
               className="w-full px-4 lg:w-1/2"
             >
               <div className="mb-12 max-w-full lg:mb-0">
-                <h2 className="mb-5 text-3xl font-bold leading-tight text-dark dark:text-white sm:text-[40px] sm:leading-[1.2]">
-                  Brilliant Toolkit to Build Nextgen Website Faster.
-                </h2>
-                <p className="mb-10 text-base leading-relaxed text-body-color dark:text-dark-6">
-                  The main &apos;thrust&apos; is to focus on educating attendees on how to
-                  best protect highly vulnerable business applications with
-                  interactive panel discussions and roundtables led by subject
-                  matter experts.
-                  <br />
-                  <br />
-                  The main &apos;thrust&lsquo; is to focus on educating attendees on how to
-                  best protect highly vulnerable business applications with
-                  interactive panel.
-                </p>
-                <a href="javascript:void(0)" className="inline-flex items-center justify-center rounded-md border border-primary bg-primary px-7 py-3 text-center text-base font-medium text-white hover:border-blue-dark hover:bg-blue-dark">
-                  Know More
-                </a>
+                <Box
+                  // initial={{ opacity: 0, x: -50 }}
+                  // whileInView={{ opacity: 1, y: 0 }}
+                  // transition={{ duration: 0.8 }}
+                  marginY={{ base: "24", md: "18", lg: "16" }}
+                  paddingTop={{ base: "8", md: "16" }}
+                  display="flex"
+                  flexDirection="column"
+                  justifyContent={"center"}
+                  alignItems={{ base: "center", md: "flex-start" }}
+                  gap="4"
+                >
+                  <Heading as="h4" className='bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-green-500 to-purple-400' fontWeight="bold" textStyle="4xl">
+                    Our <span className='bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-green-500 to-purple-400'> Workspace</span>
+                  </Heading>
+                  <Text className="text-sm font-playfair font-semibold md:text-xl lg:text-2xl text-center lg:text-left">
+                    Our goal is to build strong relationships with our clients by earning their trust and satisfaction. We strive to provide exceptional service that makes them feel valued and appreciated.
+                  </Text>
+                  <Text className="text-sm font-playfair font-semibold md:text-xl lg:text-2xl text-center lg:text-left">
+                    Brilliant Toolkit to Build Nextgen Website Faster.
+                  </Text>
+                  <Text className="text-sm font-playfair font-semibold md:text-xl lg:text-2xl text-center lg:text-left">
+                    The main &apos;thrust&apos; is to focus on educating attendees on how to
+                    best protect highly vulnerable business applications with
+                    interactive panel discussions and roundtables led by subject
+                    matter experts.
+                    <br />
+                    <br />
+                    The main &apos;thrust&lsquo; is to focus on educating attendees on how to
+                    best protect highly vulnerable business applications with
+                    interactive panel.
+                  </Text>
+                </Box>
               </div>
             </MotionBox>
-            <MotionBox
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeInUp}
+            <Box
+              // initial="hidden"
+              // whileInView="visible"
+              // viewport={{ once: true }}
+              // variants={fadeInUp}
               className="w-full px-4 lg:w-1/2"
             >
-              <Flex gap="4" wrap="wrap" justifyContent={{base: "start", md: "center", lg: 'center'}} >
+              <Flex gap="4" wrap="wrap" justifyContent={{base: "center", md: "center", lg: 'center'}}>
                 <Box>
                   <div className="mb-4 sm:mb-8 sm:h-[400px] md:h-[540px] lg:h-[400px] xl:h-[500px]">
                     <img src="https://d1frnxkutzpamu.cloudfront.net/utils/gammageeks/about_1.jpg" alt="about image" className="h-full w-full object-cover object-center" />
                   </div>
                 </Box>
-                <Box gap={4} display="flex" flexDirection="column" justifyContent={"space-between"}>
+                <Box gap={{base: 4, md: 4, lg: 4}} display="flex" flexDirection="column" justifyContent={"space-between"}>
                   <div className="mb-4 sm:mb-8 sm:h-[220px] md:h-[346px] lg:mb-4 lg:h-[225px] xl:mb-8 xl:h-[310px]">
                     <img src="https://d1frnxkutzpamu.cloudfront.net/utils/gammageeks/about_2.jpg" alt="about image" className="h-full w-full object-cover object-center" />
                   </div>
                   <div className="relative z-10 mb-4 flex items-center justify-center overflow-hidden bg-green-400 px-6 py-12 sm:mb-8 sm:h-[160px] sm:p-5 lg:mb-4 xl:mb-8">
                     <div>
+                      <Text className="font-playfair font-semibold text-2xl text-dark dark:text-white">
+                        Over
+                      </Text>
                       <Heading as="h2" fontWeight="bold" textStyle="2xl">
                         06
                       </Heading>
@@ -194,45 +200,50 @@ const WebsiteSections = () => {
                   </div>
                 </Box>
               </Flex>
-            </MotionBox>
+            </Box>
             <MotionBox
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
               variants={fadeInUp}
-              marginY={{ base: "80" }}
               className="w-full px-4 lg:w-full"
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
-                About <span className="text-blue-600">Our Company</span>
-              </h2>
-              <p className="text-gray-600 leading-relaxed">
-                Founded in 2015, we've grown from a small startup into a dynamic digital agency with a global presence. 
-                Our mission is to bridge the gap between complex technology and elegant user experiences.
-              </p>
-              <p className="text-gray-600 leading-relaxed">
-                We believe in creating solutions that not only solve problems but also delight users. 
-                Our team combines technical expertise with creative innovation to deliver exceptional results 
-                that exceed client expectations.
-              </p>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-4">
-                <div className="text-center">
-                  <h3 className="text-3xl font-bold text-blue-600">150+</h3>
-                  <p className="text-gray-600">Projects Completed</p>
-                </div>
-                <div className="text-center">
-                  <h3 className="text-3xl font-bold text-blue-600">85%</h3>
-                  <p className="text-gray-600">Client Retention</p>
-                </div>
-                <div className="text-center">
-                  <h3 className="text-3xl font-bold text-blue-600">24</h3>
-                  <p className="text-gray-600">Team Members</p>
-                </div>
-                <div className="text-center">
-                  <h3 className="text-3xl font-bold text-blue-600">12</h3>
-                  <p className="text-gray-600">Countries Served</p>
-                </div>
-              </div>
+              <Box
+                w="100%"
+                paddingY={{ base: "4", md: "12" }}
+              >
+                <Heading as="h4" className='bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-green-500 to-purple-400' fontWeight="bold" textStyle="4xl">
+                  Our <span className='bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-green-500 to-purple-400'> Company</span>
+                </Heading>
+                <Text>
+                  Founded in 2015, we've grown from a small startup into a dynamic digital agency with a global presence. 
+                  Our mission is to bridge the gap between complex technology and elegant user experiences. 
+                  We believe in creating solutions that not only solve problems but also delight users.
+                  Our team combines technical expertise with creative innovation to deliver exceptional results
+                  that exceed client expectations.
+                </Text>
+                <Box
+                  className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-4"
+                  marginY={{ base: "4", md: "12" }}
+                >
+                  <div className="text-center">
+                    <Heading as="h3" fontWeight="bold" textStyle="4xl" className="text-blue-600">150+</Heading>
+                    <Text fontWeight="bolder" className="text-white">Projects Completed</Text>
+                  </div>
+                  <div className="text-center">
+                    <Heading as="h3" fontWeight="bold" textStyle="4xl" className="text-blue-600">85%</Heading>
+                    <Text fontWeight="bolder" className="text-white">Client Retention</Text>
+                  </div>
+                  <div className="text-center">
+                    <Heading as="h3" fontWeight="bold" textStyle="4xl" className="text-blue-600">24</Heading>
+                    <Text fontWeight="bolder" className="text-white">Team Members</Text>
+                  </div>
+                  <div className="text-center">
+                    <Heading as="h3" fontWeight="bold" textStyle="4xl" className="text-blue-600">12</Heading>
+                    <Text fontWeight="bolder" className="text-white">Countries Served</Text>
+                  </div>
+                </Box>
+              </Box>
             </MotionBox>
           </Box>
         </Box>

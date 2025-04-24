@@ -7,7 +7,7 @@ const MotionBox = motion(chakra.div);
 
 // Service Card Component
 const ServiceCard = ({ icon, title, description, delay }) => (
-  <Box paddingY="5" paddingX="2" className="w-full px-4 md:w-1/2 lg:w-1/3 xl:w-1/4 hover:bg-[#ac684b] hover:text-black hover:rounded-md hover:scale-105">
+  <Box paddingY="5" paddingX="2" className="w-full px-4 md:w-1/2 lg:w-1/3 xl:w-1/3 hover:bg-[#ac684b] hover:text-black hover:rounded-md hover:scale-105">
     <Box gapY="5" className="wow fadeInUp group mb-12 text-center flex flex-col items-center" data-wow-delay={delay}>
       
       {/* Icon Container */}
@@ -44,19 +44,19 @@ const ServiceIcons = {
       <path d="M28.5238 19.8239H19.5238C18.3988 19.8239 17.4988 20.7239 17.4988 21.8489C17.4988 22.9739 18.3988 23.8739 19.5238 23.8739H28.5238C29.6488 23.8739 30.5488 22.9739 30.5488 21.8489C30.5488 20.7239 29.6488 19.8239 28.5238 19.8239Z" fill="white"/>
     </svg>
   ),
-  MobileApp: () => (
-    <svg width={37} height={37} viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M25.5613 2.89264H11.4388C9.80758 2.89264 8.45758 4.24264 8.45758 5.87389V31.1239C8.45758 32.7551 9.80758 34.1051 11.4388 34.1051H25.5613C27.1926 34.1051 28.5426 32.7551 28.5426 31.1239V5.87389C28.5426 4.24264 27.1926 2.89264 25.5613 2.89264ZM25.5613 29.6301H11.4388V7.34889H25.5613V29.6301Z" fill="white"/>
-      <path d="M18.5 31.1239C19.6246 31.1239 20.5375 30.211 20.5375 29.0864C20.5375 27.9618 19.6246 27.0489 18.5 27.0489C17.3754 27.0489 16.4625 27.9618 16.4625 29.0864C16.4625 30.211 17.3754 31.1239 18.5 31.1239Z" fill="white"/>
-    </svg>
-  ),
-  WebDev: () => (
-    <svg width={37} height={37} viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M31.5613 4.89264H5.43883C3.80758 4.89264 2.45758 6.24264 2.45758 7.87389V29.1239C2.45758 30.7551 3.80758 32.1051 5.43883 32.1051H31.5613C33.1926 32.1051 34.5426 30.7551 34.5426 29.1239V7.87389C34.5426 6.24264 33.1926 4.89264 31.5613 4.89264Z" fill="white"/>
-      <path d="M11.6238 13.4739L15.7426 18.1676L11.6238 22.8614C11.2301 23.2551 11.2301 23.8739 11.6238 24.2676C12.0176 24.6614 12.6363 24.6614 13.0301 24.2676L17.7426 19.5551C18.1363 19.1614 18.1363 18.5426 17.7426 18.1489L13.0301 13.4364C12.6363 13.0426 12.0176 13.0426 11.6238 13.4364C11.2301 13.8301 11.2301 14.4489 11.6238 14.8426" fill="white"/>
-      <path d="M25.3738 22.8239H19.3738C18.8113 22.8239 18.3613 23.2739 18.3613 23.8364C18.3613 24.3989 18.8113 24.8489 19.3738 24.8489H25.3738C25.9363 24.8489 26.3863 24.3989 26.3863 23.8364C26.3863 23.2739 25.9363 22.8239 25.3738 22.8239Z" fill="white"/>
-    </svg>
-  ),
+  // MobileApp: () => (
+  //   <svg width={37} height={37} viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+  //     <path d="M25.5613 2.89264H11.4388C9.80758 2.89264 8.45758 4.24264 8.45758 5.87389V31.1239C8.45758 32.7551 9.80758 34.1051 11.4388 34.1051H25.5613C27.1926 34.1051 28.5426 32.7551 28.5426 31.1239V5.87389C28.5426 4.24264 27.1926 2.89264 25.5613 2.89264ZM25.5613 29.6301H11.4388V7.34889H25.5613V29.6301Z" fill="white"/>
+  //     <path d="M18.5 31.1239C19.6246 31.1239 20.5375 30.211 20.5375 29.0864C20.5375 27.9618 19.6246 27.0489 18.5 27.0489C17.3754 27.0489 16.4625 27.9618 16.4625 29.0864C16.4625 30.211 17.3754 31.1239 18.5 31.1239Z" fill="white"/>
+  //   </svg>
+  // ),
+  // WebDev: () => (
+  //   <svg width={37} height={37} viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+  //     <path d="M31.5613 4.89264H5.43883C3.80758 4.89264 2.45758 6.24264 2.45758 7.87389V29.1239C2.45758 30.7551 3.80758 32.1051 5.43883 32.1051H31.5613C33.1926 32.1051 34.5426 30.7551 34.5426 29.1239V7.87389C34.5426 6.24264 33.1926 4.89264 31.5613 4.89264Z" fill="white"/>
+  //     <path d="M11.6238 13.4739L15.7426 18.1676L11.6238 22.8614C11.2301 23.2551 11.2301 23.8739 11.6238 24.2676C12.0176 24.6614 12.6363 24.6614 13.0301 24.2676L17.7426 19.5551C18.1363 19.1614 18.1363 18.5426 17.7426 18.1489L13.0301 13.4364C12.6363 13.0426 12.0176 13.0426 11.6238 13.4364C11.2301 13.8301 11.2301 14.4489 11.6238 14.8426" fill="white"/>
+  //     <path d="M25.3738 22.8239H19.3738C18.8113 22.8239 18.3613 23.2739 18.3613 23.8364C18.3613 24.3989 18.8113 24.8489 19.3738 24.8489H25.3738C25.9363 24.8489 26.3863 24.3989 26.3863 23.8364C26.3863 23.2739 25.9363 22.8239 25.3738 22.8239Z" fill="white"/>
+  //   </svg>
+  // ),
   Cloud: () => (
     <svg width={37} height={37} viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M28.5613 14.8926C28.5613 10.2364 24.8051 6.48014 20.1488 6.48014C16.7738 6.48014 13.9051 8.44889 12.6676 11.2614C8.84258 11.7676 5.89258 15.0614 5.89258 19.0551C5.89258 23.3801 9.39258 26.8801 13.7176 26.8801H27.8863C31.2613 26.8801 34.0176 24.1239 34.0176 20.7489C34.0176 17.5926 31.5763 15.0051 28.5613 14.8926ZM27.8863 23.8989H13.7176C11.0176 23.8989 8.87383 21.7551 8.87383 19.0551C8.87383 16.4114 10.9613 14.2676 13.6051 14.2114C14.1676 14.2114 14.6176 13.8176 14.7301 13.2551C15.4613 10.6676 17.6551 9.46139 20.1488 9.46139C23.1638 9.46139 25.5488 11.8464 25.5488 14.8614C25.5488 15.4239 25.9988 15.8739 26.5613 15.8739C29.0551 15.8739 31.0363 17.8551 31.0363 20.3489C31.0363 22.8426 29.6301 23.8989 27.8863 23.8989Z" fill="white"/>
@@ -97,18 +97,18 @@ const servicesData = [
     description: "We build custom software that streamlines operations, enhances user experience, and grows with your business.",
     delay: ".1s"
   },
-  {
-    icon: <ServiceIcons.MobileApp />,
-    title: "Mobile App Development",
-    description: "We develop intuitive, feature-rich mobile apps for iOS and Android, guiding you from idea to launch.",
-    delay: ".15s"
-  },
-  {
-    icon: <ServiceIcons.WebDev />,
-    title: "Web Development",
-    description: "We create responsive, secure, and visually stunning websites that elevate your brand and engage your audience.",
-    delay: ".2s"
-  },
+  // {
+  //   icon: <ServiceIcons.MobileApp />,
+  //   title: "Mobile App Development",
+  //   description: "We develop intuitive, feature-rich mobile apps for iOS and Android, guiding you from idea to launch.",
+  //   delay: ".15s"
+  // },
+  // {
+  //   icon: <ServiceIcons.WebDev />,
+  //   title: "Web Development",
+  //   description: "We create responsive, secure, and visually stunning websites that elevate your brand and engage your audience.",
+  //   delay: ".2s"
+  // },
   {
     icon: <ServiceIcons.Cloud />,
     title: "Cloud Solutions & Migration",
@@ -159,21 +159,16 @@ function Services() {
 
         {/* Content */}
         <Box w="100%" className="relative z-10">
-          <Stack
-            direction={{ base: "column", md: "row" }}
-            gap={{ base: "8", md: "20" }}
-            marginY={{ base: "24", md: "18", lg: "16" }}
-            paddingX={{ base: "4", md: "12", lg: "12" }}
-            align="center"
-            justify="space-between"
-            className="w-full"
+          <Box
+            className='-mx-4 flex flex-wrap items-center'
+            paddingX={{ base: "8", md: "32" }}
+            paddingBottom={{ base: "8", md: "16", lg: "16" }}
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
           >
             <MotionBox
-              direction="column"
-              w={{ base: "100%", md: "30%" }}
-              marginY={{ base: "0", md: "20" }}
-              paddingX={{ base: "4", md: "0" }}
-              justify={{ base: "center", md: "flex-start" }}
+              className="w-full px-4 lg:w-1/3"
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
@@ -186,9 +181,7 @@ function Services() {
               </p>
             </MotionBox>
             <MotionBox
-              direction="column"
-              w={{ base: "100%", md: "70%" }}
-              className="justify-center items-center lg:items-end lg:justify-start lg:col-span-3"
+              className='w-full px-4 lg:w-2/3'
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1 }}
@@ -205,7 +198,7 @@ function Services() {
                 ))}
               </Box>
             </MotionBox>
-          </Stack>
+          </Box>
         </Box>
       </Flex>
     </>
