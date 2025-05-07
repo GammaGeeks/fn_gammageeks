@@ -60,7 +60,7 @@ const ProjectShowcase = () => {
           </Text>
         </MotionBox>
         <Box
-          className="grid grid-cols-1 md:grid-cols-2 gap-8 px-8 md:px-32 pb-8 md:pb-16"
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 px-8 md:px-32 pb-8 md:pb-16"
           paddingX={{ base: "8", md: "32" }}
           paddingBottom={{ base: "8", md: "16" }}
         >

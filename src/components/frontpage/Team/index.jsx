@@ -4,6 +4,7 @@ import { Mail, Phone, MapPin, ArrowRight, Linkedin, Twitter, Github } from 'luci
 import { Box, Flex, Heading, Text, chakra } from '@chakra-ui/react';
 
 const MotionBox = motion(chakra.div);
+const MotionHeading = motion(Heading);
 
 const WebsiteSections = () => {
   const [formData, setFormData] = useState({
@@ -40,27 +41,33 @@ const WebsiteSections = () => {
 
   const teamMembers = [
     {
-      name: "Alex Morgan",
+      name: "Vincent Musangamfura",
       role: "CEO & Founder",
-      image: "/api/placeholder/300/300",
+      image: "https://d1frnxkutzpamu.cloudfront.net/utils/gammageeks/team/vincent.png",
       bio: "15+ years experience in digital innovation and business strategy."
     },
     {
-      name: "Samantha Chen",
+      name: "Igor J.L. Ndiramiye",
       role: "Chief Technology Officer",
-      image: "/api/placeholder/300/300",
+      image: "https://d1frnxkutzpamu.cloudfront.net/utils/gammageeks/team/igor.png",
       bio: "AI specialist with background in machine learning and cloud architecture."
     },
     {
-      name: "David Park",
+      name: "Adolphe Ngoga",
       role: "Lead Developer",
-      image: "/api/placeholder/300/300",
+      image: "https://d1frnxkutzpamu.cloudfront.net/utils/gammageeks/team/ngoga.jpg",
       bio: "Full-stack engineer passionate about creating intuitive digital experiences."
     },
     {
-      name: "Ava Williams",
+      name: "Serge Rwoga",
       role: "UX/UI Designer",
-      image: "/api/placeholder/300/300",
+      image: "https://d1frnxkutzpamu.cloudfront.net/utils/gammageeks/team/serge.png",
+      bio: "Award-winning designer crafting beautiful, user-centered interfaces."
+    },
+    {
+      name: "Jean Claude Mbonimpa",
+      role: "Web Developer",
+      image: "https://d1frnxkutzpamu.cloudfront.net/utils/gammageeks/team/claude.jpg",
       bio: "Award-winning designer crafting beautiful, user-centered interfaces."
     }
   ];
@@ -262,64 +269,168 @@ const WebsiteSections = () => {
         >
           <Box className="absolute inset-0 bg-gradient-to-br from-black/90 via-black/85 to-black/90 backdrop-blur-sm" />
         </Box>
-        <Box className="container mx-auto px-6 md:px-20">
-          <MotionBox
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center max-w-3xl mx-auto mb-16"
+        <Box w="100%" className='relative z-10'>
+          <Box
+            className='-mx-4 flex flex-wrap items-center'
+            paddingX={{ base: "8", md: "32" }}
+            paddingBottom={{ base: "8", md: "16" }}
+            marginY={{ base: "24", md: "18", lg: "16" }}
+            paddingTop={{ base: "8", md: "16" }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-              Meet Our <span className="text-blue-600">Expert Team</span>
-            </h2>
-            <p className="text-gray-600">
-              Our diverse team of professionals combines creativity, technical expertise, and industry insight 
-              to deliver exceptional digital solutions for our clients.
-            </p>
-          </MotionBox>
-
-          <MotionBox
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
-          >
-            {teamMembers.map((member, index) => (
               <MotionBox
-                key={index}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
                 variants={fadeInUp}
-                className="bg-white rounded-xl shadow-md overflow-hidden group"
+                className="w-full px-4 lg:w-full"
               >
-                <div className="relative overflow-hidden">
-                  <img 
-                    src={member.image} 
-                    alt={member.name} 
-                    className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex justify-center items-end">
-                    <div className="p-4 flex space-x-3 mb-2">
-                      <motion.button whileHover={{ scale: 1.1 }} className="bg-white p-2 rounded-full">
-                        <Linkedin size={16} className="text-blue-600" />
-                      </motion.button>
-                      <motion.button whileHover={{ scale: 1.1 }} className="bg-white p-2 rounded-full">
-                        <Twitter size={16} className="text-blue-400" />
-                      </motion.button>
-                      <motion.button whileHover={{ scale: 1.1 }} className="bg-white p-2 rounded-full">
-                        <Github size={16} className="text-gray-800" />
-                      </motion.button>
-                    </div>
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold text-gray-800">{member.name}</h3>
-                  <p className="text-blue-600 mb-3">{member.role}</p>
-                  <p className="text-gray-600 text-sm">{member.bio}</p>
-                </div>
+                <Box
+                  // initial={{ opacity: 0, x: -50 }}
+                  // whileInView={{ opacity: 1, y: 0 }}
+                  // transition={{ duration: 0.8 }}
+                  display="flex"
+                  flexDirection="column"
+                  justifyContent={"center"}
+                  alignItems={{ base: "center", md: "flex-start" }}
+                  gap="4"
+                >
+                  <Heading as="h4" className='bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-green-500 to-purple-400' fontWeight="bold" textStyle="4xl">
+                    Meet Our <span className='bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-green-500 to-purple-400'> Expert Team</span>
+                  </Heading>
+                  <Text className="text-sm font-playfair font-semibold md:text-xl lg:text-2xl text-center lg:text-left">
+                    Our diverse team of professionals combines creativity, technical expertise, and industry insight 
+                    to deliver exceptional digital solutions for our clients.
+                  </Text>
+                </Box>
               </MotionBox>
-            ))}
-          </MotionBox>
+
+              <MotionBox
+                variants={staggerContainer}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8"
+                marginY={{ base: "4", md: "12" }}
+              >
+                {teamMembers.map((member, index) => (
+                  <MotionBox
+                    key={index}
+                    variants={fadeInUp}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-10px" }}
+                    className="bg-none rounded-xl shadow-md overflow-hidden group"
+                    whileHover={{
+                      y: -10,
+                      boxShadow: "0px 10px 25px rgba(0,0,0,0.2)",
+                      transition: { duration: 0.3, ease: "easeOut" }
+                    }}
+                  >
+                    <MotionBox 
+                      className="relative overflow-hidden"
+                      initial="rest"
+                      whileHover="hover"
+                      animate="rest"
+                    >
+                      <motion.img 
+                        src={member.image} 
+                        alt={member.name} 
+                        className="w-full h-64 object-cover"
+                        initial={{ scale: 1.2, filter: "blur(5px)" }}
+                        animate={{ scale: 1, filter: "blur(0px)" }}
+                        transition={{ duration: 0.8 }}
+                        whileHover={{ 
+                          scale: 1.1,
+                          transition: { duration: 0.5, ease: [0.6, 0.05, 0.01, 0.9] }
+                        }}
+                      />
+                      {/* Overlay with Social Media Icons */}
+                      <MotionBox 
+                        className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent flex flex-col justify-end"
+                        initial={{ opacity: 0 }}
+                        whileHover={{ opacity: 1 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <MotionBox 
+                          className="p-4 flex space-x-3 mb-2 justify-center"
+                          initial={{ y: 20, opacity: 0 }}
+                          whileHover={{ y: 0, opacity: 1 }}
+                          transition={{ delay: 0.1, duration: 0.3 }}
+                        >
+                          <motion.button 
+                            whileHover={{ 
+                              scale: 1.2, 
+                              backgroundColor: "#0077B5",
+                              color: "white"
+                            }} 
+                            className="bg-white p-2 rounded-full shadow-lg"
+                            transition={{ type: "spring", stiffness: 300 }}
+                          >
+                            <Linkedin size={16} className="text-blue-600" />
+                          </motion.button>
+                          <motion.button 
+                            whileHover={{ 
+                              scale: 1.2, 
+                              backgroundColor: "#1DA1F2",
+                              color: "white"
+                            }} 
+                            className="bg-white p-2 rounded-full shadow-lg"
+                            transition={{ type: "spring", stiffness: 300 }}
+                          >
+                            <Twitter size={16} className="text-blue-400" />
+                          </motion.button>
+                          <motion.button 
+                            whileHover={{ 
+                              scale: 1.2, 
+                              backgroundColor: "#333",
+                              color: "white"
+                            }} 
+                            className="bg-white p-2 rounded-full shadow-lg"
+                            transition={{ type: "spring", stiffness: 300 }}
+                          >
+                            <Github size={16} className="text-gray-800" />
+                          </motion.button>
+                        </MotionBox>
+                      </MotionBox>
+                    </MotionBox>
+                    <MotionBox 
+                      className="p-6"
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.2, duration: 0.4 }}
+                    >
+                      <motion.h3 
+                        className="text-xl font-semibold text-gray-800"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 0.3, duration: 0.5 }}
+                      >
+                        {member.name}
+                      </motion.h3>
+                      <Heading as="h5" className='bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-green-500 to-purple-400' fontWeight="bold" textStyle="xl">
+                        {member.name}
+                      </Heading>
+                      <motion.p 
+                        className="text-blue-600 mb-3"
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.4, duration: 0.5 }}
+                      >
+                        {member.role}
+                      </motion.p>
+                      <motion.p 
+                        className="text-gray-600 text-sm"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 0.5, duration: 0.5 }}
+                      >
+                        {member.bio}
+                      </motion.p>
+                    </MotionBox>
+                  </MotionBox>
+                ))}
+              </MotionBox>
+          </Box>
         </Box>
       </Flex>
 
@@ -361,11 +472,11 @@ const WebsiteSections = () => {
                   </div>
                   <div>
                     <h3 className="text-lg font-medium">Call Us</h3>
-                    <p className="text-gray-300">+1 (555) 123-4567</p>
+                    <p className="text-gray-300">+250 789 660 036</p>
                   </div>
                 </div>
 
-                <div className="flex items-center space-x-4">
+                {/* <div className="flex items-center space-x-4">
                   <div className="bg-blue-600/20 p-3 rounded-full">
                     <MapPin className="w-6 h-6 text-blue-400" />
                   </div>
@@ -373,7 +484,7 @@ const WebsiteSections = () => {
                     <h3 className="text-lg font-medium">Visit Us</h3>
                     <p className="text-gray-300">123 Innovation Drive, Tech City, TC 12345</p>
                   </div>
-                </div>
+                </div> */}
               </div>
             </MotionBox>
 
