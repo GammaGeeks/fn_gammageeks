@@ -9,18 +9,21 @@ const projects = [
     title: "Kigaluxe Web Application",
     description: "Kigaluxe is a web application that provides a platform for users to explore and book luxury accommodations in Kigali, Rwanda. The application features a user-friendly interface, and advanced search options.",
     imageUrl: "https://d1frnxkutzpamu.cloudfront.net/utils/gammageeks/kigaluxe.png",
+    href: "https://kigaluxe.estate/",
     stack: "UI/UX, React, Node.js",
   },
   {
     title: "Tura Estate Web Application",
     description: "Tura Estate is a web application that offers a comprehensive solution for real estate management. It allows users to list properties, manage bookings, and communicate with potential buyers or renters.",
     imageUrl: "https://d1frnxkutzpamu.cloudfront.net/utils/gammageeks/tura.png",
+    href: "https://turaestate.com/",
     stack: "UI/UX, React, Node.js",
   },
   {
     title: "My Roots Oline Store",
     description: "My Roots is an online store that specializes in selling african ashion products. The website features a clean and modern design, making it easy for users to browse and purchase products.",
     imageUrl: "https://d1frnxkutzpamu.cloudfront.net/utils/gammageeks/myroots.png",
+    href: "https://myroots.store/",
     stack: "Shopify, Printify, CMS",
   },
 ];
@@ -72,6 +75,7 @@ const ProjectShowcase = () => {
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
+                onClick={() => window.open(project.href, "_blank")}
               >
                 <div className="flex-1">
                   <img src={project.imageUrl} alt={project.title} className="w-full h-full object-cover rounded-lg shadow-lg" />

@@ -335,36 +335,41 @@ const WebsiteSections = () => {
                       <motion.img 
                         src={member.image} 
                         alt={member.name} 
-                        className="w-full h-64 object-cover"
+                        className="w-full h-full object-cover object-center rounded-t-xl"
                         initial={{ scale: 1.2, filter: "blur(5px)" }}
                         animate={{ scale: 1, filter: "blur(0px)" }}
                         transition={{ duration: 0.8 }}
                         whileHover={{ 
                           scale: 1.1,
-                          transition: { duration: 0.5, ease: [0.6, 0.05, 0.01, 0.9] }
+                          transition: { duration: 0.4, ease: "easeOut" }
                         }}
                       />
-                      {/* Overlay with Social Media Icons */}
+                      {/* Overlay with Social Media Icons and Info Box */}
                       <MotionBox 
-                        className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent flex flex-col justify-end"
+                        className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/70 to-transparent flex flex-col justify-end gap-4 p-4"
                         initial={{ opacity: 0 }}
-                        whileHover={{ opacity: 1 }}
-                        transition={{ duration: 0.3 }}
+                        whileHover={{ 
+                          opacity: 1,
+                          transition: { duration: 0.2 }
+                        }}
                       >
+                        {/* Social Media Icons at the bottom */}
                         <MotionBox 
-                          className="p-4 flex space-x-3 mb-2 justify-center"
-                          initial={{ y: 20, opacity: 0 }}
-                          whileHover={{ y: 0, opacity: 1 }}
-                          transition={{ delay: 0.1, duration: 0.3 }}
+                          className="flex space-x-3 justify-around"
+                          variants={{
+                            rest: { opacity: 0, y: 20 },
+                            hover: { opacity: 1, y: 0 }
+                          }}
+                          transition={{ duration: 0.3, delay: 0.2 }}
                         >
                           <motion.button 
                             whileHover={{ 
                               scale: 1.2, 
                               backgroundColor: "#0077B5",
-                              color: "white"
+                              color: "white",
+                              transition: { duration: 0.2 }
                             }} 
                             className="bg-white p-2 rounded-full shadow-lg"
-                            transition={{ type: "spring", stiffness: 300 }}
                           >
                             <Linkedin size={16} className="text-blue-600" />
                           </motion.button>
@@ -372,10 +377,10 @@ const WebsiteSections = () => {
                             whileHover={{ 
                               scale: 1.2, 
                               backgroundColor: "#1DA1F2",
-                              color: "white"
+                              color: "white",
+                              transition: { duration: 0.2 }
                             }} 
                             className="bg-white p-2 rounded-full shadow-lg"
-                            transition={{ type: "spring", stiffness: 300 }}
                           >
                             <Twitter size={16} className="text-blue-400" />
                           </motion.button>
@@ -383,49 +388,59 @@ const WebsiteSections = () => {
                             whileHover={{ 
                               scale: 1.2, 
                               backgroundColor: "#333",
-                              color: "white"
+                              color: "white",
+                              transition: { duration: 0.2 }
                             }} 
                             className="bg-white p-2 rounded-full shadow-lg"
-                            transition={{ type: "spring", stiffness: 300 }}
                           >
                             <Github size={16} className="text-gray-800" />
                           </motion.button>
                         </MotionBox>
+                        {/* Info Box at the top */}
+                        <MotionBox 
+                          className="bg-white/95 backdrop-blur-sm rounded-xl shadow-lg transform"
+                          variants={{
+                            rest: { opacity: 0, y: -20 },
+                            hover: { opacity: 1, y: 0 }
+                          }}
+                          transition={{ duration: 0.3, delay: 0.1 }}
+                          padding={{ base: "4", md: "6" }}
+                        >
+                          <MotionHeading
+                            variants={{
+                              rest: { opacity: 0 },
+                              hover: { opacity: 1 }
+                            }}
+                            transition={{ duration: 0.2, delay: 0.2 }}
+                            as="h5"
+                            className='bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-green-500 to-purple-400'
+                            fontWeight="bold"
+                            textStyle="xl"
+                          >
+                            {member.name}
+                          </MotionHeading>
+                          <motion.p 
+                            className="text-blue-600 mb-2"
+                            variants={{
+                              rest: { opacity: 0, x: -10 },
+                              hover: { opacity: 1, x: 0 }
+                            }}
+                            transition={{ duration: 0.2, delay: 0.3 }}
+                          >
+                            {member.role}
+                          </motion.p>
+                          <motion.p 
+                            className="text-gray-600 text-sm"
+                            variants={{
+                              rest: { opacity: 0 },
+                              hover: { opacity: 1 }
+                            }}
+                            transition={{ duration: 0.2, delay: 0.4 }}
+                          >
+                            {member.bio}
+                          </motion.p>
+                        </MotionBox>
                       </MotionBox>
-                    </MotionBox>
-                    <MotionBox 
-                      className="p-6"
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.2, duration: 0.4 }}
-                    >
-                      <motion.h3 
-                        className="text-xl font-semibold text-gray-800"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: 0.3, duration: 0.5 }}
-                      >
-                        {member.name}
-                      </motion.h3>
-                      <Heading as="h5" className='bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-green-500 to-purple-400' fontWeight="bold" textStyle="xl">
-                        {member.name}
-                      </Heading>
-                      <motion.p 
-                        className="text-blue-600 mb-3"
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.4, duration: 0.5 }}
-                      >
-                        {member.role}
-                      </motion.p>
-                      <motion.p 
-                        className="text-gray-600 text-sm"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: 0.5, duration: 0.5 }}
-                      >
-                        {member.bio}
-                      </motion.p>
                     </MotionBox>
                   </MotionBox>
                 ))}
