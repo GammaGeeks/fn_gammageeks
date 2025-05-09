@@ -16,14 +16,14 @@ const projects = [
     title: "Tura Estate Web Application",
     description: "Tura Estate is a web application that offers a comprehensive solution for real estate management. It allows users to list properties, manage bookings, and communicate with potential buyers or renters.",
     imageUrl: "https://d1frnxkutzpamu.cloudfront.net/utils/gammageeks/tura.png",
-    href: "https://turaestate.com/",
+    href: "https://main.d1is0ae4zo623s.amplifyapp.com",
     stack: "UI/UX, React, Node.js",
   },
   {
     title: "My Roots Oline Store",
     description: "My Roots is an online store that specializes in selling african ashion products. The website features a clean and modern design, making it easy for users to browse and purchase products.",
     imageUrl: "https://d1frnxkutzpamu.cloudfront.net/utils/gammageeks/myroots.png",
-    href: "https://myroots.store/",
+    href: "https://myroots.shop/",
     stack: "Shopify, Printify, CMS",
   },
 ];

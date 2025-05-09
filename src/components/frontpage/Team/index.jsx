@@ -319,7 +319,7 @@ const WebsiteSections = () => {
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, margin: "-10px" }}
-                    className="bg-none rounded-xl shadow-md overflow-hidden group"
+                    className="bg-none rounded-xl shadow-md overflow-hidden group h-[400px]"
                     whileHover={{
                       y: -10,
                       boxShadow: "0px 10px 25px rgba(0,0,0,0.2)",
@@ -330,12 +330,14 @@ const WebsiteSections = () => {
                       className="relative overflow-hidden"
                       initial="rest"
                       whileHover="hover"
+                      whileFocus="hover"
                       animate="rest"
+                      height="100%"
                     >
                       <motion.img 
                         src={member.image} 
                         alt={member.name} 
-                        className="w-full h-full object-cover object-center rounded-t-xl"
+                        className="w-full h-full object-cover object-center rounded-xl"
                         initial={{ scale: 1.2, filter: "blur(5px)" }}
                         animate={{ scale: 1, filter: "blur(0px)" }}
                         transition={{ duration: 0.8 }}
@@ -398,7 +400,7 @@ const WebsiteSections = () => {
                         </MotionBox>
                         {/* Info Box at the top */}
                         <MotionBox 
-                          className="bg-white/95 backdrop-blur-sm rounded-xl shadow-lg transform"
+                          className="bg-white/95 backdrop-blur-sm rounded-b-xl shadow-lg transform"
                           variants={{
                             rest: { opacity: 0, y: -20 },
                             hover: { opacity: 1, y: 0 }
