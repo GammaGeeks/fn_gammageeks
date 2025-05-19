@@ -1,24 +1,26 @@
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, ArrowRight, Linkedin, Twitter, Github } from 'lucide-react';
-import { Box, Flex, Heading, Text, chakra } from '@chakra-ui/react';
+import { Box, Flex, Heading, Text, chakra, Image } from '@chakra-ui/react';
 
 const MotionBox = motion(chakra.div);
 const MotionHeading = motion(Heading);
+const MotionImage = motion(Image);
+const MotionButton = motion(chakra.button);
 
 const WebsiteSections = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
+  // const [formData, setFormData] = useState({
+  //   name: '',
+  //   email: '',
+  //   message: ''
+  // });
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
+  // const handleChange = (e) => {
+  //   setFormData({
+  //     ...formData,
+  //     [e.target.name]: e.target.value
+  //   });
+  // };
 
   const fadeInUp = {
     hidden: { opacity: 0, y: 60 },
@@ -334,7 +336,10 @@ const WebsiteSections = () => {
                       animate="rest"
                       height="100%"
                     >
-                      <motion.img 
+                      <MotionImage
+                        width="100%"
+                        height="100%"
+                        borderRadius="xl"
                         src={member.image} 
                         alt={member.name} 
                         className="w-full h-full object-cover object-center rounded-xl"
@@ -364,43 +369,43 @@ const WebsiteSections = () => {
                           }}
                           transition={{ duration: 0.3, delay: 0.2 }}
                         >
-                          <motion.button 
+                          <MotionButton 
+                            className="bg-white p-2 rounded-full shadow-lg"
                             whileHover={{ 
                               scale: 1.2, 
                               backgroundColor: "#0077B5",
                               color: "white",
                               transition: { duration: 0.2 }
                             }} 
-                            className="bg-white p-2 rounded-full shadow-lg"
                           >
                             <Linkedin size={16} className="text-blue-600" />
-                          </motion.button>
-                          <motion.button 
+                          </MotionButton>
+                          <MotionButton 
+                            className="bg-white p-2 rounded-full shadow-lg"
                             whileHover={{ 
                               scale: 1.2, 
                               backgroundColor: "#1DA1F2",
                               color: "white",
                               transition: { duration: 0.2 }
                             }} 
-                            className="bg-white p-2 rounded-full shadow-lg"
                           >
                             <Twitter size={16} className="text-blue-400" />
-                          </motion.button>
-                          <motion.button 
+                          </MotionButton>
+                          <MotionButton 
+                            className="bg-white p-2 rounded-full shadow-lg"
                             whileHover={{ 
                               scale: 1.2, 
                               backgroundColor: "#333",
                               color: "white",
                               transition: { duration: 0.2 }
                             }} 
-                            className="bg-white p-2 rounded-full shadow-lg"
                           >
                             <Github size={16} className="text-gray-800" />
-                          </motion.button>
+                          </MotionButton>
                         </MotionBox>
                         {/* Info Box at the top */}
                         <MotionBox 
-                          className="bg-white/95 backdrop-blur-sm rounded-b-xl shadow-lg transform"
+                          className="bg-gradient-to-br from-[#E4E5E6]/90 to-[#00416A]/90 backdrop-blur-sm rounded-b-xl shadow-lg transform"
                           variants={{
                             rest: { opacity: 0, y: -20 },
                             hover: { opacity: 1, y: 0 }
@@ -415,14 +420,14 @@ const WebsiteSections = () => {
                             }}
                             transition={{ duration: 0.2, delay: 0.2 }}
                             as="h5"
-                            className='bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-green-500 to-purple-400'
+                            className='bg-clip-text text-transparent bg-gradient-to-r from-black via-orange-500 to-red-500 opacity-70'
                             fontWeight="bold"
-                            textStyle="xl"
+                            textStyle="md"
                           >
                             {member.name}
                           </MotionHeading>
                           <motion.p 
-                            className="text-blue-600 mb-2"
+                            className="text-black mb-2 *:text-sm font-light"
                             variants={{
                               rest: { opacity: 0, x: -10 },
                               hover: { opacity: 1, x: 0 }
@@ -431,8 +436,8 @@ const WebsiteSections = () => {
                           >
                             {member.role}
                           </motion.p>
-                          <motion.p 
-                            className="text-gray-600 text-sm"
+                          {/* <motion.p 
+                            className="text-black text-sm font-light"
                             variants={{
                               rest: { opacity: 0 },
                               hover: { opacity: 1 }
@@ -440,7 +445,7 @@ const WebsiteSections = () => {
                             transition={{ duration: 0.2, delay: 0.4 }}
                           >
                             {member.bio}
-                          </motion.p>
+                          </motion.p> */}
                         </MotionBox>
                       </MotionBox>
                     </MotionBox>
@@ -453,126 +458,18 @@ const WebsiteSections = () => {
 
       {/* Contact Form Section */}
       <Flex id="contact" className="relative min-h-screen flex items-center justify-center">
-        <div className="container mx-auto px-6 md:px-20">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <MotionBox
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="space-y-8"
-            >
-              <div>
-                <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                  Let's <span className="text-blue-400">Connect</span>
-                </h2>
-                <p className="text-gray-300 max-w-md">
-                  Have a project in mind or want to learn more about our services? 
-                  Get in touch and let's discuss how we can help transform your ideas into reality.
-                </p>
-              </div>
-
-              <div className="space-y-6">
-                <div className="flex items-center space-x-4">
-                  <div className="bg-blue-600/20 p-3 rounded-full">
-                    <Mail className="w-6 h-6 text-blue-400" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-medium">Email Us</h3>
-                    <p className="text-gray-300">info@yourcompany.com</p>
-                  </div>
-                </div>
-
-                <div className="flex items-center space-x-4">
-                  <div className="bg-blue-600/20 p-3 rounded-full">
-                    <Phone className="w-6 h-6 text-blue-400" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-medium">Call Us</h3>
-                    <p className="text-gray-300">+250 789 660 036</p>
-                  </div>
-                </div>
-
-                {/* <div className="flex items-center space-x-4">
-                  <div className="bg-blue-600/20 p-3 rounded-full">
-                    <MapPin className="w-6 h-6 text-blue-400" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-medium">Visit Us</h3>
-                    <p className="text-gray-300">123 Innovation Drive, Tech City, TC 12345</p>
-                  </div>
-                </div> */}
-              </div>
-            </MotionBox>
-
-            <MotionBox
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-            >
-              <form className="bg-white/10 backdrop-blur-sm p-8 rounded-xl">
-                <h3 className="text-2xl font-semibold mb-6">Send Us a Message</h3>
-                
-                <div className="space-y-6">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium mb-2">
-                      Your Name
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 bg-white/5 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 text-white"
-                      placeholder="John Doe"
-                    />
-                  </div>
-                  
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium mb-2">
-                      Email Address
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 bg-white/5 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 text-white"
-                      placeholder="john@example.com"
-                    />
-                  </div>
-                  
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium mb-2">
-                      Your Message
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      rows="4"
-                      className="w-full px-4 py-3 bg-white/5 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 text-white"
-                      placeholder="Tell us about your project..."
-                    ></textarea>
-                  </div>
-                  
-                  <motion.button
-                    whileHover={{ scale: 1.03 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg flex items-center justify-center space-x-2 transition-colors duration-300"
-                  >
-                    <span>Send Message</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </motion.button>
-                </div>
-              </form>
-            </MotionBox>
-          </div>
-        </div>
+        <Box
+          className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat z-0"
+          style={{
+            backgroundColor: "gray",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        >
+          <Box className="absolute inset-0 bg-gradient-to-br from-black/90 via-black/85 to-black/90 backdrop-blur-sm" />
+        </Box>
+        <Box w="100%" className='relative z-10'>
+        </Box>
       </Flex>
     </>
   );
