@@ -2,7 +2,7 @@
 import { Formik, Field } from 'formik';
 import * as Yup from 'yup';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, ArrowRight, Linkedin, Twitter, Github } from 'lucide-react';
+import { ArrowRight, Linkedin, Twitter, Github } from 'lucide-react';
 import { 
   Box, 
   Flex, 
@@ -10,8 +10,6 @@ import {
   Text, 
   chakra, 
   Image, 
-  Input, 
-  Textarea,
 } from '@chakra-ui/react';
 
 const MotionBox = motion(chakra.div);
@@ -417,7 +415,7 @@ const WebsiteSections = () => {
                         <MotionBox 
                           className="bg-gradient-to-br from-[#E4E5E6]/90 to-[#00416A]/90 backdrop-blur-sm rounded-b-xl shadow-lg transform"
                           variants={{
-                            rest: { opacity: 0, y: -20 },
+                            rest: { opacity: 0, y: 20 },
                             hover: { opacity: 1, y: 0 }
                           }}
                           transition={{ duration: 0.3, delay: 0.1 }}
@@ -497,7 +495,12 @@ const WebsiteSections = () => {
             transition={{ duration: 0.5 }}
           >
             <Flex className='flex flex-col w-full'>
-              <Text className='bg-clip-text text-transparent text-center md:text-start bg-gradient-to-r from-blue-400 via-green-500 to-purple-400' fontWeight="bold" textStyle="5xl">
+              <Text
+                className='bg-clip-text text-transparent text-center md:text-start bg-gradient-to-r from-blue-400 via-green-500 to-purple-400'
+                fontWeight="bold"
+                textStyle="5xl"
+                paddingY={{ base: "4", md: "6" }}
+              >
                 Contact Us
               </Text>
 
@@ -527,7 +530,13 @@ const WebsiteSections = () => {
                   >
                     {({ handleSubmit, errors, touched, isSubmitting }) => (
                       <form onSubmit={handleSubmit} className="space-y-5">
-                        <div className="flex flex-col md:flex-row gap-4">
+                        <Flex
+                          className="flex flex-col md:flex-row gap-4"
+                          marginBottom={{ base: "4", md: "8" }}
+                          justifyContent={{ base: "center", md: "space-between" }}
+                          alignItems={{ base: "center", md: "flex-start" }}
+                          flexWrap={{ base: "wrap", md: "nowrap" }}
+                        >
                           <fieldset className="space-y-1 w-full md:w-1/2">
                             <Field
                               name="name"
@@ -552,7 +561,7 @@ const WebsiteSections = () => {
                               <div className="text-red-400 text-sm">{errors.email}</div>
                             )}
                           </fieldset>
-                        </div>
+                        </Flex>
 
                         <fieldset className="space-y-1">
                           <Field
@@ -571,7 +580,19 @@ const WebsiteSections = () => {
                         <MotionButton
                           type="submit"
                           disabled={isSubmitting}
-                          className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold px-8 py-3 rounded-full shadow-lg w-full flex items-center justify-center"
+                          className="text-white font-semibold rounded-full shadow-lg w-full flex items-center justify-center"
+                          paddingX={8}
+                          paddingY={4}
+                          color={"white"}
+                          backgroundColor="blue.500"
+                          backgroundImage="linear-gradient(to right, #4f46e5, #3b82f6)"
+                          borderRadius="full"
+                          boxSize="full"
+                          boxSizing="border-box"
+                          borderWidth="1px"
+                          borderColor="blue.500"
+                          borderStyle="solid"
+                          boxShadow="0px 5px 15px rgba(0, 0, 255, 0.2)"
                           whileHover={{ 
                             scale: 1.05,
                             boxShadow: "0px 5px 15px rgba(0, 0, 255, 0.4)"
@@ -595,8 +616,8 @@ const WebsiteSections = () => {
                   transition={{ duration: 0.5, delay: 0.2 }}
                   viewport={{ once: true }}
                 >
-                  <Text className="text-lg"><strong>Email:</strong> contact@yourdomain.com</Text>
-                  <Text className="text-lg"><strong>Phone:</strong> +250 123 456 789</Text>
+                  <Text className="text-lg"><strong>Email:</strong> jeanluc05@live.com</Text>
+                  <Text className="text-lg"><strong>Phone:</strong> +250 789 660 036</Text>
                   <Text className="text-lg"><strong>Location:</strong> Kigali, Rwanda</Text>
                   <Text className="text-sm text-gray-300">We'd love to hear from you! Whether you have a question or just want to say hi, drop us a message.</Text>
                 </MotionBox>
