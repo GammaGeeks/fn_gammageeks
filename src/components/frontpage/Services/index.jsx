@@ -154,7 +154,7 @@ function Services() {
             backgroundPosition: "center",
           }}
         >
-          <Box className="absolute inset-0 bg-gradient-to-br from-black/90 via-black/85 to-black/90 backdrop-blur-sm" />
+          <Box className="absolute inset-0 bg-gd-services backdrop-blur-sm" />
         </Box>
 
         {/* Content */}

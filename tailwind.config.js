@@ -5,6 +5,10 @@ export default {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        'gd-services': 'linear-gradient(to right bottom, #1b435d, #325f7d, #497c9f, #609bc2, #78bbe6)',
+        'gd-cta': 'linear-gradient(to left top, #efeeea, #b9c0b8, #82948f, #4e696e, #273f4f)',
+      },
       animation: {
         'slow-pulse': 'slow-pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       },
