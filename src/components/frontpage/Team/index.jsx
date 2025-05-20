@@ -2,7 +2,7 @@
 import { Formik, Field } from 'formik';
 import * as Yup from 'yup';
 import { motion } from 'framer-motion';
-import { ArrowRight, Linkedin, Twitter, Github } from 'lucide-react';
+import { ArrowRight, Linkedin, Twitter, Github, Mail, Phone, MapPin } from 'lucide-react';
 import { 
   Box, 
   Flex, 
@@ -11,6 +11,8 @@ import {
   chakra, 
   Image, 
 } from '@chakra-ui/react';
+import { LuFacebook, LuInstagram } from 'react-icons/lu';
+import { FaTiktok } from 'react-icons/fa';
 
 const MotionBox = motion(chakra.div);
 const MotionHeading = motion(Heading);
@@ -388,7 +390,7 @@ const WebsiteSections = () => {
                               transition: { duration: 0.2 }
                             }} 
                           >
-                            <Linkedin size={16} className="text-white" />
+                            <Linkedin size={20} className="text-white" />
                           </MotionButton>
 
                           <MotionButton 
@@ -398,7 +400,7 @@ const WebsiteSections = () => {
                               transition: { duration: 0.2 }
                             }} 
                           >
-                            <Twitter size={16} className="text-white" />
+                            <Twitter size={20} className="text-white" />
                           </MotionButton>
 
                           <MotionButton 
@@ -408,7 +410,7 @@ const WebsiteSections = () => {
                               transition: { duration: 0.2 }
                             }} 
                           >
-                            <Github size={16} className="text-white" />
+                            <Github size={20} className="text-white" />
                           </MotionButton>
                         </MotionBox>
                         {/* Info Box at the top */}
@@ -563,19 +565,23 @@ const WebsiteSections = () => {
                           </fieldset>
                         </Flex>
 
-                        <fieldset className="space-y-1">
-                          <Field
-                            as="textarea"
-                            name="message"
-                            rows={5}
-                            className="w-full bg-gradient-to-r from-blue-600/20 to-purple-600/20 border-2 border-blue-400/30 focus:ring-2 focus:ring-blue-400 text-white rounded-lg shadow-inner"
-                            style={{ padding: '0.5rem 1rem 0.5rem 1rem' }}
-                            placeholder="Your Message"
-                          />
-                          {errors.message && touched.message && (
-                            <div className="text-red-400 text-sm">{errors.message}</div>
-                          )}
-                        </fieldset>
+                        <Flex
+                          marginBottom={{ base: "4", md: "8" }}
+                        >
+                          <fieldset className="w-full">
+                            <Field
+                              as="textarea"
+                              name="message"
+                              rows={5}
+                              className="w-full bg-gradient-to-r from-blue-600/20 to-purple-600/20 border-2 border-blue-400/30 focus:ring-2 focus:ring-blue-400 text-white rounded-lg shadow-inner"
+                              style={{ padding: '0.5rem 1rem 0.5rem 1rem' }}
+                              placeholder="Your Message"
+                            />
+                            {errors.message && touched.message && (
+                              <div className="text-red-400 text-sm">{errors.message}</div>
+                            )}
+                          </fieldset>
+                        </Flex>
                         
                         <MotionButton
                           type="submit"
@@ -611,15 +617,116 @@ const WebsiteSections = () => {
                 {/* Contact Info */}
                 <MotionBox
                   className="w-full md:w-1/2 space-y-4"
+                  paddingBottom={{ base: "4", md: "8" }}
                   initial={{ opacity: 0, x: 40 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
                   viewport={{ once: true }}
                 >
-                  <Text className="text-lg"><strong>Email:</strong> jeanluc05@live.com</Text>
+                  <div className="flex items-center space-x-4 gap-4 mb-3">
+                    <div className="bg-blue-600/20 p-3 rounded-full">
+                      <Mail className="w-6 h-6 text-blue-400" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-medium">
+                        <strong>Email Us</strong>
+                      </h3>
+                      <p className="text-gray-300">jeanluc05@live.com</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center space-x-4 gap-4 mb-3">
+                    <div className="bg-blue-600/20 p-3 rounded-full">
+                      <Phone className="w-6 h-6 text-blue-400" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-medium">
+                        <strong>Call Us</strong>
+                      </h3>
+                      <p className="text-gray-300">+250 789 660 036</p>
+                    </div>
+                  </div>
+    
+                  <div className="flex items-center space-x-4 gap-4 mb-3">
+                    <div className="bg-blue-600/20 p-3 rounded-full">
+                      <MapPin className="w-6 h-6 text-blue-400" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-medium">
+                        <strong>Location</strong>
+                      </h3>
+                      <p className="text-gray-300">Gahanga, Kigali, Rwanda</p>
+                    </div>
+                  </div>
+                  {/* <Text className="text-lg"><strong>Email:</strong> jeanluc05@live.com</Text>
                   <Text className="text-lg"><strong>Phone:</strong> +250 789 660 036</Text>
-                  <Text className="text-lg"><strong>Location:</strong> Kigali, Rwanda</Text>
-                  <Text className="text-sm text-gray-300">We'd love to hear from you! Whether you have a question or just want to say hi, drop us a message.</Text>
+                  <Text className="text-lg"><strong>Location:</strong> Kigali, Rwanda</Text> */}
+                  <Text className="text-sm text-gray-300" marginTop={{base: 4, md: 8}}>We'd love to hear from you! Whether you have a question or just want to say hi, drop us a message.</Text>
+                  <Text className="text-sm text-gray-300">Follow us on social media for the latest updates and insights.</Text>
+                  <Flex
+                    className="space-x-4"
+                    marginTop={{ base: "4", md: "8" }}
+                    justifyContent={{ base: "center", md: "flex-start" }}
+                    alignItems={{ base: "center", md: "flex-start" }}
+                    flexWrap={{ base: "wrap", md: "nowrap" }}
+                    gap={{ base: "4", md: "8" }}
+                  >
+                    <MotionButton 
+                      className="bg-white p-2 rounded-full shadow-lg hover:scale-110 hover:bg-[#0077B5] hover:text-white transition-all"
+                      whileHover={{ 
+                        scale: 1.2,
+                        transition: { duration: 0.2 }
+                      }} 
+                    >
+                      <Linkedin size={48} className="text-white" />
+                    </MotionButton>
+
+                    <MotionButton 
+                      className="bg-white p-2 rounded-full shadow-lg hover:scale-110 hover:bg-[#1DA1F2] hover:text-white transition-all"
+                      whileHover={{ 
+                        scale: 1.2,
+                        transition: { duration: 0.2 }
+                      }} 
+                    >
+                      <Twitter size={48} className="text-white" />
+                    </MotionButton>
+
+                    <MotionButton 
+                      className="bg-white p-2 rounded-full shadow-lg hover:scale-110 hover:bg-[#333] hover:text-white transition-all"
+                      whileHover={{ 
+                        scale: 1.2,
+                        transition: { duration: 0.2 }
+                      }} 
+                    >
+                      <Github size={48} className="text-white" />
+                    </MotionButton>
+                    <MotionButton 
+                      className="bg-white p-2 rounded-full shadow-lg hover:scale-110 hover:bg-[#FF0000] hover:text-white transition-all"
+                      whileHover={{ 
+                        scale: 1.2,
+                        transition: { duration: 0.2 }
+                      }}
+                    >
+                      <LuInstagram size={48} className="text-white" />
+                    </MotionButton>
+                    <MotionButton 
+                      className="bg-white p-2 rounded-full shadow-lg hover:scale-110 hover:bg-[#FF0000] hover:text-white transition-all"
+                      whileHover={{ 
+                        scale: 1.2,
+                        transition: { duration: 0.2 }
+                      }}
+                    >
+                      <LuFacebook size={48} className="text-white" />
+                    </MotionButton>
+                    <MotionButton 
+                      className="bg-white p-2 rounded-full shadow-lg hover:scale-110 hover:bg-[#FF0000] hover:text-white transition-all"
+                      whileHover={{ 
+                        scale: 1.2,
+                        transition: { duration: 0.2 }
+                      }}
+                    >
+                      <FaTiktok size={48} className="text-white" />
+                    </MotionButton>
+                  </Flex>
                 </MotionBox>
               </Flex>
             </Flex>
