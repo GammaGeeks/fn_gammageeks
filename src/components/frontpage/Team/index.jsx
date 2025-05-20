@@ -1,12 +1,24 @@
 // import React, { useState } from 'react';
+import { Formik, Field } from 'formik';
+import * as Yup from 'yup';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, ArrowRight, Linkedin, Twitter, Github } from 'lucide-react';
-import { Box, Flex, Heading, Text, chakra, Image } from '@chakra-ui/react';
+import { 
+  Box, 
+  Flex, 
+  Heading, 
+  Text, 
+  chakra, 
+  Image, 
+  Input, 
+  Textarea,
+} from '@chakra-ui/react';
 
 const MotionBox = motion(chakra.div);
 const MotionHeading = motion(Heading);
 const MotionImage = motion(Image);
 const MotionButton = motion(chakra.button);
+const MotionText = motion(Text);
 
 const WebsiteSections = () => {
   // const [formData, setFormData] = useState({
@@ -273,7 +285,7 @@ const WebsiteSections = () => {
         </Box>
         <Box w="100%" className='relative z-10'>
           <Box
-            className='-mx-4 flex flex-wrap items-center'
+            className='-mx-4 flex flex-wrap items-center justify-center'
             paddingX={{ base: "8", md: "32" }}
             paddingBottom={{ base: "8", md: "16" }}
             marginY={{ base: "24", md: "18", lg: "16" }}
@@ -307,12 +319,14 @@ const WebsiteSections = () => {
               </MotionBox>
 
               <MotionBox
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8"
+                marginY={{ base: "4", md: "12" }}
+                // justifyContent={"center"}
+                // alignItems={"center"}
                 variants={staggerContainer}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
-                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8"
-                marginY={{ base: "4", md: "12" }}
               >
                 {teamMembers.map((member, index) => (
                   <MotionBox
@@ -370,37 +384,33 @@ const WebsiteSections = () => {
                           transition={{ duration: 0.3, delay: 0.2 }}
                         >
                           <MotionButton 
-                            className="bg-white p-2 rounded-full shadow-lg"
+                            className="bg-white p-2 rounded-full shadow-lg hover:scale-110 hover:bg-[#0077B5] hover:text-white transition-all"
                             whileHover={{ 
-                              scale: 1.2, 
-                              backgroundColor: "#0077B5",
-                              color: "white",
+                              scale: 1.2,
                               transition: { duration: 0.2 }
                             }} 
                           >
-                            <Linkedin size={16} className="text-blue-600" />
+                            <Linkedin size={16} className="text-white" />
                           </MotionButton>
+
                           <MotionButton 
-                            className="bg-white p-2 rounded-full shadow-lg"
+                            className="bg-white p-2 rounded-full shadow-lg hover:scale-110 hover:bg-[#1DA1F2] hover:text-white transition-all"
                             whileHover={{ 
-                              scale: 1.2, 
-                              backgroundColor: "#1DA1F2",
-                              color: "white",
+                              scale: 1.2,
                               transition: { duration: 0.2 }
                             }} 
                           >
-                            <Twitter size={16} className="text-blue-400" />
+                            <Twitter size={16} className="text-white" />
                           </MotionButton>
+
                           <MotionButton 
-                            className="bg-white p-2 rounded-full shadow-lg"
+                            className="bg-white p-2 rounded-full shadow-lg hover:scale-110 hover:bg-[#333] hover:text-white transition-all"
                             whileHover={{ 
-                              scale: 1.2, 
-                              backgroundColor: "#333",
-                              color: "white",
+                              scale: 1.2,
                               transition: { duration: 0.2 }
                             }} 
                           >
-                            <Github size={16} className="text-gray-800" />
+                            <Github size={16} className="text-white" />
                           </MotionButton>
                         </MotionBox>
                         {/* Info Box at the top */}
@@ -433,6 +443,12 @@ const WebsiteSections = () => {
                               hover: { opacity: 1, x: 0 }
                             }}
                             transition={{ duration: 0.2, delay: 0.3 }}
+                            fontWeight="bold"
+                            textStyle="sm"
+                            color="gray.700"
+                            textTransform="uppercase"
+                            textAlign="center"
+                            letterSpacing="wider"
                           >
                             {member.role}
                           </motion.p>
@@ -457,7 +473,8 @@ const WebsiteSections = () => {
       </Flex>
 
       {/* Contact Form Section */}
-      <Flex id="contact" className="relative min-h-screen flex items-center justify-center">
+      <Flex id="contact" className="relative min-h-screen flex items-center justify-center px-4 sm:px-10 py-16">
+        {/* Background Image with Overlay */}
         <Box
           className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat z-0"
           style={{
@@ -468,7 +485,124 @@ const WebsiteSections = () => {
         >
           <Box className="absolute inset-0 bg-gradient-to-br from-black/90 via-black/85 to-black/90 backdrop-blur-sm" />
         </Box>
-        <Box w="100%" className='relative z-10'>
+
+        {/* Contact Content */}
+        <Box w="100%" className="relative z-10">
+          <Box
+            className="-mx-4 flex flex-wrap"
+            paddingX={{ base: "8", md: "28" }}
+            paddingBottom={{ base: "8", md: "16", lg: "16" }}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <Flex className='flex flex-col w-full'>
+              <Text className='bg-clip-text text-transparent text-center md:text-start bg-gradient-to-r from-blue-400 via-green-500 to-purple-400' fontWeight="bold" textStyle="5xl">
+                Contact Us
+              </Text>
+
+              <Flex className="flex flex-col md:flex-row gap-10">
+                {/* Contact Form */}
+                <MotionBox
+                  className="w-full md:w-1/2 space-y-6"
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5 }}
+                  viewport={{ once: true }}
+                >
+                  <Formik
+                    initialValues={{ name: '', email: '', message: '' }}
+                    validationSchema={Yup.object({
+                      name: Yup.string().required('Name is required'),
+                      email: Yup.string().email('Invalid email').required('Email is required'),
+                      message: Yup.string().required('Message is required').min(10, 'Message too short')
+                    })}
+                    onSubmit={(values, { setSubmitting, resetForm }) => {
+                      setTimeout(() => {
+                        console.log(values);
+                        setSubmitting(false);
+                        resetForm();
+                      }, 1000);
+                    }}
+                  >
+                    {({ handleSubmit, errors, touched, isSubmitting }) => (
+                      <form onSubmit={handleSubmit} className="space-y-5">
+                        <div className="flex flex-col md:flex-row gap-4">
+                          <fieldset className="space-y-1 w-full md:w-1/2">
+                            <Field
+                              name="name"
+                              className="w-full bg-gradient-to-r from-blue-600/20 to-purple-600/20 border-2 border-blue-400/30 focus:ring-2 focus:ring-blue-400 text-white rounded-lg shadow-inner"
+                              style={{ padding: '0.5rem 1rem 0.5rem 1rem' }}
+                              placeholder="Your Name"
+                            />
+                            {errors.name && touched.name && (
+                              <div className="text-red-400 text-sm">{errors.name}</div>
+                            )}
+                          </fieldset>
+                          
+                          <fieldset className="space-y-1 w-full md:w-1/2">
+                            <Field
+                              name="email"
+                              type="email"
+                              className="w-full bg-gradient-to-r from-blue-600/20 to-purple-600/20 border-2 border-blue-400/30 focus:ring-2 focus:ring-blue-400 text-white rounded-lg shadow-inner"
+                              style={{ padding: '0.5rem 1rem 0.5rem 1rem' }}
+                              placeholder="Your Email"
+                            />
+                            {errors.email && touched.email && (
+                              <div className="text-red-400 text-sm">{errors.email}</div>
+                            )}
+                          </fieldset>
+                        </div>
+
+                        <fieldset className="space-y-1">
+                          <Field
+                            as="textarea"
+                            name="message"
+                            rows={5}
+                            className="w-full bg-gradient-to-r from-blue-600/20 to-purple-600/20 border-2 border-blue-400/30 focus:ring-2 focus:ring-blue-400 text-white rounded-lg shadow-inner"
+                            style={{ padding: '0.5rem 1rem 0.5rem 1rem' }}
+                            placeholder="Your Message"
+                          />
+                          {errors.message && touched.message && (
+                            <div className="text-red-400 text-sm">{errors.message}</div>
+                          )}
+                        </fieldset>
+                        
+                        <MotionButton
+                          type="submit"
+                          disabled={isSubmitting}
+                          className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold px-8 py-3 rounded-full shadow-lg w-full flex items-center justify-center"
+                          whileHover={{ 
+                            scale: 1.05,
+                            boxShadow: "0px 5px 15px rgba(0, 0, 255, 0.4)"
+                          }}
+                          whileTap={{ scale: 0.98 }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          {isSubmitting ? 'Sending...' : 'Send Message'}
+                          {!isSubmitting && <ArrowRight className="ml-2" />}
+                        </MotionButton>
+                      </form>
+                    )}
+                  </Formik>
+                </MotionBox>
+
+                {/* Contact Info */}
+                <MotionBox
+                  className="w-full md:w-1/2 space-y-4"
+                  initial={{ opacity: 0, x: 40 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                  viewport={{ once: true }}
+                >
+                  <Text className="text-lg"><strong>Email:</strong> contact@yourdomain.com</Text>
+                  <Text className="text-lg"><strong>Phone:</strong> +250 123 456 789</Text>
+                  <Text className="text-lg"><strong>Location:</strong> Kigali, Rwanda</Text>
+                  <Text className="text-sm text-gray-300">We'd love to hear from you! Whether you have a question or just want to say hi, drop us a message.</Text>
+                </MotionBox>
+              </Flex>
+            </Flex>
+          </Box>
         </Box>
       </Flex>
     </>

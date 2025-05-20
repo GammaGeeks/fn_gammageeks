@@ -48,7 +48,12 @@ const Nav = () => {
               ))}
             </Box>
             <Box className="flex items-center">
-              <Button colorPalette="purple" variant="solid" className="bg-gradient-to-r from-blue-500 to-purple-500 text-white px-8 py-4 lg:px-10 lg:py-5 flex items-center gap-2 hover:opacity-90 rounded-full transition-all duration-300 shadow-lg hover:shadow-blue-500/20 text-lg lg:text-xl">
+              <Button
+                colorPalette="purple"
+                variant="solid"
+                className="bg-gradient-to-r from-blue-500 to-purple-500 text-white px-8 py-4 lg:px-10 lg:py-5 flex items-center gap-2 hover:opacity-90 rounded-full transition-all duration-300 shadow-lg hover:shadow-blue-500/20 text-lg lg:text-xl"
+                onClick={() => window.scrollTo({ top: document.getElementById("contact").offsetTop, behavior: "smooth" })}
+              >
                 Get in touch
               </Button>
             </Box>
@@ -108,7 +113,7 @@ const Nav = () => {
             ))}
             <Button
               variant="solid"
-              onClick={() => setIsMobileMenuOpen(false)}
+              onClick={() => setIsMobileMenuOpen(false) && window.scrollTo({ top: document.getElementById("contact").offsetTop, behavior: "smooth" })}
               as="a"
               href="#contact"
               color="white"
