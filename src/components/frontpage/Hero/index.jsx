@@ -153,7 +153,7 @@ const HeroText = () => (
               as="a"
               href="#projects"
               color="white"
-              colorPalette="purple"
+              colorPalette="yellow"
               variant="solid"
             >
               Our Work <ArrowRight size={20} />

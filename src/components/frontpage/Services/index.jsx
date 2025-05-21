@@ -7,12 +7,12 @@ const MotionBox = motion(chakra.div);
 
 // Service Card Component
 const ServiceCard = ({ icon, title, description, delay }) => (
-  <Box paddingY="5" paddingX="2" className="w-full px-4 md:w-1/2 lg:w-1/3 xl:w-1/3 hover:bg-[#ac684b] hover:text-black hover:rounded-md hover:scale-105">
-    <Box gapY="5" className="wow fadeInUp group mb-12 text-center flex flex-col items-center" data-wow-delay={delay}>
+  <Box paddingY="5" paddingX="2" className="w-full px-4 md:w-1/2 lg:w-1/3 xl:w-1/3 hover:bg-[#022C43] hover:text-[#E2F1E7] hover:rounded-md hover:scale-105">
+    <Box gapY="5" className="wow fadeInUp mb-12 text-center flex flex-col items-center" data-wow-delay={delay}>
       
       {/* Icon Container */}
-      <Box className="relative z-10 mb-4 flex h-[60px] w-[60px] items-center justify-center rounded-xl bg-purple-200 text-purple-600de mx-auto">
-        <span className="absolute inset-0 -z-[1] flex items-center justify-center rounded-xl bg-purple-700 bg-opacity-20 rotate-25 transition-transform duration-300 group-hover:rotate-45" />
+      <Box className="relative z-10 mb-4 flex h-[60px] w-[60px] items-center justify-center rounded-xl bg-[#115173] text-[#FFD700]/80 mx-auto">
+        <span className="absolute inset-0 -z-[1] flex items-center justify-center rounded-xl bg-[#FFD700] bg-opacity-20 rotate-25 transition-transform duration-300 group-hover:rotate-45" />
         {icon}
       </Box>
 
@@ -27,7 +27,7 @@ const ServiceCard = ({ icon, title, description, delay }) => (
       </Text>
 
       {/* Learn More Link */}
-      <Button className="text-sm font-medium text-dark transition-colors hover:text-purple-600 dark:text-white dark:hover:text-purple-600 inline-block">
+      <Button className="text-sm font-medium text-dark transition-colors hover:bg-[#FFD700]/80 dark:text-white inline-block">
         Learn More →
       </Button>
       
@@ -154,7 +154,7 @@ function Services() {
             backgroundPosition: "center",
           }}
         >
-          <Box className="absolute inset-0 bg-gd-services backdrop-blur-sm" />
+          <Box className="absolute inset-0 bg-black backdrop-blur-sm" />
         </Box>
 
         {/* Content */}
